@@ -77,9 +77,14 @@ pyramid.plot<-function (lx, rx, labels = NA, top.labels = c("Male", "Age",
             text(rpos, 1:ncats, labels[, 2], pos = 2, cex = labelcex, 
                 adj = 1)
         }
-        mtext(top.labels, 3, 0, at = c(-xlim[1]/2, 0, xlim[2]/2), 
-            adj = 0.5, cex = labelcex)
-        mtext(c(unit, unit), 1, 2, at = c(-xlim[1]/2, xlim[2]/2))
+        cat(xlim,"\n")
+        mtext(top.labels,side=3,line=0,
+         at=c(-(xlim[1]+gap)/2,0,(xlim[2]+gap)/2), 
+         adj = 0.5, cex = labelcex)
+        if(length(unit) == 1) mtext(unit,1,2.5,at=0,cex=labelcex)
+        else
+         mtext(c(unit,unit),1,2.5,at=c(-(xlim[1]+gap)/2,(xlim[2]+gap)/2),
+         cex=labelcex)
     }
     halfwidth <- 0.5 - space/2
     if (is.null(lxdim)) {
