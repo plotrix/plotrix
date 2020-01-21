@@ -34,7 +34,7 @@ twoord.plot<-function(lx,ly,rx,ry,data=NULL,main="",xlim=NULL,lylim=NULL,
  rylim=NULL,mar=c(5,4,4,4),lcol=1,rcol=2,xlab="",
  lytickpos=NA,ylab="",ylab.at=NA,rytickpos=NA,rylab="",rylab.at=NA,
  lpch=1,rpch=2,type="b",xtickpos=NULL,xticklab=NULL,halfwidth=0.4,
- axislab.cex=1,do.first=NULL,...) {
+ axislab.cex=1,do.first=NULL,xaxt="s",...) {
 
  if(!is.null(data)) {
   ly<-unlist(data[ly])
@@ -93,11 +93,16 @@ twoord.plot<-function(lx,ly,rx,ry,data=NULL,main="",xlim=NULL,lylim=NULL,
  xylim<-par("usr")
  #mtext(ylab,2,2,col=lcol,cex=axislab.cex)
  box()
- # display the X axis
- if(is.null(xticklab)) axis(1,cex.axis=axislab.cex)
- else {
-  if(is.null(xtickpos)) xtickpos<-1:length(xticklab)
-  axis(1,at=xtickpos,labels=xticklab,cex.axis=axislab.cex)
+ if(xaxt != "n") { 
+  # display the X axis
+  if(inherits(lx,"POSIXt")) axis.POSIXct(1)
+  else {
+   if(is.null(xticklab)) axis(1,cex.axis=axislab.cex)
+   else {
+    if(is.null(xtickpos)) xtickpos<-1:length(xticklab)
+    axis(1,at=xtickpos,labels=xticklab,cex.axis=axislab.cex)
+   }
+  }
  }
  # display the left axis
  if(is.na(lytickpos[1])) lytickpos<-pretty(ly)

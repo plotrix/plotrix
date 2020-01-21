@@ -5,7 +5,7 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
 
  height.class<-attr(height,"class")
  if(!is.null(height.class)) {
-  if(match(height.class,"dstat",0)) {
+  if(inherits(height.class,"dstat")) {
    md1<-length(height)
    md2<-dim(height[[1]])[2]
    meanmat<-matrix(NA,nrow=md1,ncol=md2)
@@ -13,7 +13,7 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
    for(row in 1:md1) meanmat[row,]<-height[[row]][1,]
    height<-meanmat
   }
-  if(match(height.class,"freq",0)) height<-height[[1]] 
+  if(inherits(height.class,"freq")) height<-height[[1]] 
  }
  if(is.data.frame(height)) its_ok<-is.numeric(unlist(height))
  else its_ok<-is.numeric(height)
@@ -50,23 +50,28 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
  if(!is.null(do.first)) eval(parse(text=do.first))
  if(negy) abline(h=0)
  if(is.null(names.arg)) names.arg<-x
- if(staxx) {
-  axis(1,at=x,labels=rep("",ngroups),cex.axis=cex.axis)
-  staxlab(1,at=x,labels=names.arg,cex=cex.axis,srt=srt)
+ # staxx=NA omits x axis
+ if(!is.na(staxx)) {
+  if(staxx) {
+   axis(1,at=x,labels=rep("",ngroups),cex.axis=cex.axis)
+   staxlab(1,at=x,labels=names.arg,cex=cex.axis,srt=srt)
+  }
+  else axis(1,at=x,labels=names.arg,cex.axis=cex.axis)
+  if(is.null(height.at)) {
+   if(ylog) height.at<-axTicks(2,log=TRUE)
+   else height.at<-pretty(ylim)
+   if(max(height.at) > max(height,na.rm=TRUE))
+    height.at<-height.at[-length(height.at)]
+  }
+  if(is.null(height.lab)) height.lab<-height.at
  }
- else axis(1,at=x,labels=names.arg,cex.axis=cex.axis)
- if(is.null(height.at)) {
-  if(ylog) height.at<-axTicks(2,log=TRUE)
-  else height.at<-pretty(ylim)
-  if(max(height.at) > max(height,na.rm=TRUE))
-   height.at<-height.at[-length(height.at)]
+ if(!is.na(staxy)) {
+  if(staxy) {
+   axis(2,at=height.at,labels=rep("",length(height.lab)),cex.axis=cex.axis)
+   staxlab(2,at=height.at,labels=height.lab,cex=cex.axis,srt=srt)
+  }
+  else axis(2,at=height.at,labels=height.lab,cex.axis=cex.axis)
  }
- if(is.null(height.lab)) height.lab<-height.at
- if(staxy) {
-  axis(2,at=height.at,labels=rep("",length(height.lab)),cex.axis=cex.axis)
-  staxlab(2,at=height.at,labels=height.lab,cex=cex.axis,srt=srt)
- }
- else axis(2,at=height.at,labels=height.lab,cex.axis=cex.axis)
  bottoms<-ifelse(negy,0,miny)
  if(is.null(hdim)) {
   if(shadow) {
@@ -74,7 +79,7 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
     polygon.shadow(c(x[bar]-width,x[bar]-width,x[bar]+width,x[bar]+width),
      c(bottoms,height[bar],height[bar],bottoms),
      offset=c(0.2*width,0.05*(height[bar]-ylim[2])))
-  }
+   }
   if(cylindrical)
    cylindrect(x-width,bottoms,x+width,height,col=barcol,
     border=border)
