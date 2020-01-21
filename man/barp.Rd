@@ -25,7 +25,7 @@
  \item{xlim,ylim}{Optional horizontal and vertical limits for the plot.}
  \item{x}{Optional horizontal positions for the bars. Defaults to 1:length(height).} 
 \item{staxx,staxy}{Whether to use \link{staxlab} to stagger the 
-  X or Y axis tick labels.}
+  X or Y axis tick labels. Can also omit the X or Y axes.}
  \item{height.at}{Optional positions of the tick marks on the Y axis.}
  \item{height.lab}{Optional tick labels for the Y axis.}
  \item{cex.axis}{Character expansion for the axis labels.}
@@ -77,6 +77,9 @@
  respectively will be staggered, allowing the user to use many or lengthy variable
  or value labels. If \samp{srt} is not NULL, these labels will be rotated 
  counterclockwise by that value as angles in degrees instead of staggered.
+ 
+ If \samp{staxx} or \samp{staxy} are set to NA, the respective axis will not
+ be displayed.
 
  \samp{barp} allows two enhancements that may be useful in those areas where fancy
  plots are appreciated. One is to give the bars a cylindrical look by shading the

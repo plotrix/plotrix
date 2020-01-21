@@ -10,7 +10,7 @@
  mar=c(5,4,4,4),lcol=1,rcol=2,xlab="",lytickpos=NA,ylab="",ylab.at=NA,
  rytickpos=NA,rylab="",rylab.at=NA,lpch=1,rpch=2,
  type="b",xtickpos=NULL,xticklab=NULL,halfwidth=0.4,axislab.cex=1,
- do.first=NULL,...)
+ do.first=NULL,xaxt="s",...)
 }
 \arguments{
  \item{lx,ly,rx,ry}{y and optional x values for the plot}
@@ -37,6 +37,7 @@
  \item{axislab.cex}{Character expansion for the axis labels and tick labels.}
  \item{do.first}{Optional command(s) that will be executed immediately after
   the blank plot is displayed.}
+ \item{xaxt}{Whether to display the x-axis - "n" = no.}
  \item{...}{additional arguments passed to \samp{plot} and \samp{points}.}
 }
 \value{nil}
