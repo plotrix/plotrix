@@ -1,3 +1,14 @@
+version 3.7-8
+
+        Either axis in barp can now be omitted using the stax* arguments
+        HH:MM to decimal hour conversion with hm2dec argument in clock24.plot
+        Improved the placement of top.labels in pyramid.plot
+
+version 3.7-7
+
+        twoord.plot now calls axis.POSIXct for the x-axis if appropriate
+        fixed problem with conditional statements using "class"
+
 version 3.7-6
 
         fixed color.axis when "at" values are outside the plot limits
