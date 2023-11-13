@@ -73,7 +73,7 @@
  par(mar=c(4,2,2,2))
  tso<-c(0.2,0.3,0.5,0.4,0.6,0.8,0.1)
  plot(tso,type="n",axes=FALSE,xlab="")
-\donttest{
+\dontrun{
  # the following needs a Unicode locale to work (and a suitable font)
  # Few devices can plot these -- and not the default pdf() for checking.
  points(1:7,tso,pch=c(rep(-0x263a,6),-0x2639),cex=2)

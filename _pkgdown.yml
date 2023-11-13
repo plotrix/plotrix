@@ -1,0 +1,7 @@
+url: ~
+template:
+  bootstrap: 5
+authors:
+  footer:
+    roles: aut
+
