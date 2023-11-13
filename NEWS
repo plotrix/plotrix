@@ -1,6 +1,6 @@
-Changes in version 3.8-5 (2023-11-09)
+Changes in version 3.8-6 (2023-11-13)
 
-  - Added pkgdown site at https://dmurdoch.github.io/plotrix/
+  - Added pkgdown site at https://plotrix.github.io/plotrix/
   
   - Changed `Authors` to more descriptive `Authors@R`.
 

@@ -1,6 +1,5 @@
 Package: plotrix
-Version: 3.8-5
-Date: 2023-11-09
+Version: 3.8-6
 Title: Various Plotting Functions
 Authors@R: c(
   person("Jim", "Lemon", role = "aut"),
@@ -43,5 +42,5 @@ NeedsCompilation: no
 Depends: R (>= 3.5.0)
 Repository: CRAN
 Date/Publication: 2023-11-02 15:17:47 UTC
-URL: https://dmurdoch.github.io/plotrix/, https://github.com/dmurdoch/plotrix
-BugReports: https://github.com/dmurdoch/plotrix/issues
+URL: https://plotrix.github.io/plotrix/, https://github.com/plotrix/plotrix
+BugReports: https://github.com/plotrix/plotrix/issues

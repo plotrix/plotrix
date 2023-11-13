@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # plotrix
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/dmurdoch/plotrix/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmurdoch/plotrix/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/plotrix/plotrix/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/plotrix/plotrix/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `plotrix` is an `R` package that provides many plotting, labeling, and axis &
@@ -35,7 +35,7 @@ You can install the development version of plotrix from [GitHub](https://github.
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("dmurdoch/plotrix")
+devtools::install_github("plotrix/plotrix")
 ```
 
 ## Authors
@@ -45,7 +45,7 @@ The original author and maintainer of `plotrix`, Jim Lemon, passed away in
 September 2023. 
 
 Currently it is being maintained by Duncan Murdoch.  Please submit
-bug reports to https://github.com/dmurdoch/plotrix/issues.  
+bug reports to https://github.com/plotrix/plotrix/issues.  
 
 ```{r echo = FALSE}
 authors <- eval(parse(text = packageDescription("plotrix")$Authors))
