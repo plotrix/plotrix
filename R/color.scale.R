@@ -15,6 +15,7 @@ color.scale<-function(x,cs1=c(0,1),cs2=c(0,1),cs3=c(0,1),alpha=1,
  maxcs1<-ifelse(color.spec=="hcl",360,1)
  maxcs2<-ifelse(color.spec=="hcl",100,1)
  maxcs3<-ifelse(color.spec=="hcl",100,1)
+ maxalpha<-1
  ncolors<-length(x)
  if(is.null(xrange)) {
   xrange<-range(x,na.rm=TRUE)
@@ -68,12 +69,27 @@ color.scale<-function(x,cs1=c(0,1),cs2=c(0,1),cs3=c(0,1),alpha=1,
    cs3s<-rescale(cs3s,c(0,maxcs3))
  }
  else cs3s<-rep(cs3,ncolors)
+ nalpha<-length(alpha)
+ if(nalpha>1) {
+  alphas<-rep(alpha[nalpha],ncolors)
+  xstart<-xrange[1]
+  xinc<-diff(xrange)/(nalpha-1)
+  for(seg in 1:(nalpha-1)){
+   segindex<-which((x >= xstart) & (x <= (xstart+xinc)))
+   alphas[segindex]<-rescale(x[segindex],alpha[c(seg,seg+1)])
+   xstart<-xstart+xinc
+  }
+  if(min(alphas,na.rm=TRUE) < 0 || max(alphas,na.rm=TRUE) > maxalpha)
+   alphas<-rescale(alphas,c(0,maxalpha))
+ }
+ else alphas<-rep(alpha,ncolors)
  if(drop.extremes) {
+  # drop the first two (extreme) values in each vector
   cs1s<-cs1s[-(1:2)]
   cs2s<-cs2s[-(1:2)]
   cs3s<-cs3s[-(1:2)]
  }
- colors<-do.call(color.spec,list(cs1s,cs2s,cs3s,alpha=alpha))
+ colors<-do.call(color.spec,list(cs1s,cs2s,cs3s,alphas))
  if(!is.null(xdim)) colors<-matrix(colors,nrow=xdim[1])
  if(length(naxs)) colors[naxs]<-na.color
  return(colors)

@@ -61,8 +61,8 @@ sizetree<-function (x, left = 0, top, right = 1, lastcenter = NA,
                       newcol[[1]] <- NULL
                       nextx <- subset(x, x[, 1] == xvalue, 2:dimx[2])
                       sizetree(nextx, right, top, right + 1, 
-                        lastcenter = top - xfreq[bar]/2, showval = showval, 
-                        stacklabels = stacklabels, firstcall = FALSE,
+                        lastcenter = top - xfreq[bar]/2, showval = showval,
+                        showcount = showcount, stacklabels = stacklabels, firstcall = FALSE,
                         col = newcol, border = border, base.cex = base.cex)
                     }
                   }

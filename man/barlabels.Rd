@@ -3,23 +3,24 @@
 \title{Label the bars on a barplot}
 \description{Displays labels on a plot, usually a bar plot.}
 \usage{
- barlabels(xpos,ypos,labels=NULL,cex=1,prop=0.5,miny=0,offset=0,...)
+ barlabels(xpos,ypos,labels=NULL,cex=1,prop=0.5,miny=0,offset=0,nobox=FALSE,...)
 }
 \arguments{
  \item{xpos}{A vector, matrix or data frame of x positions for the labels.}
- \item{ypos}{A vector, matrix or data frame of y positions for the labels.}
- \item{labels}{The labels to display. Defaults to the values of y.}
+ \item{ypos}{A vector, matrix or data frame of y values for the labels.}
+ \item{labels}{The labels to display. Defaults to the values of ypos.}
  \item{cex}{Relative size of the labels. See \samp{text}.}
  \item{prop}{The proportion of \samp{ypos} at which to place the labels.
   Defaults to 0.5 (the middle).}
  \item{miny}{The minimum value at which to display labels.}
  \item{offset}{Amount to horizontally offset successive labels in case
   of vertical overlaps.}
- \item{...}{Extra arguments passed to \samp{boxed.labels}.}
+ \item{nobox}{Whether to call \samp{boxed.labels} or \samp{text}.}
+ \item{...}{Extra arguments passed to \samp{boxed.labels} or \samp{text}.}
 }
 \details{
  \samp{barlabels} places labels on a plot at horizontal positions \samp{xpos}
- and vertical positions \samp{ypos} * \samp{pos}. The typical use of this
+ and vertical positions \samp{ypos} * \samp{prop}. The typical use of this
  function is to place labels on bars, by default in the middle of the bars.
 
  To put labels just over the tops of the bars, set \samp{prop} to 1 and add a

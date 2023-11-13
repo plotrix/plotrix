@@ -42,7 +42,7 @@
 }
 \keyword{misc}
 \author{Jim Lemon}
-\seealso{\link{intersectDiagram}, \link{pasteCols}, link{categoryReshape}}
+\seealso{\link{intersectDiagram}, \link{pasteCols},\link{categoryReshape}}
 \examples{
  # create a matrix where each row represents an element and
  # a 1 (or TRUE) in each column indicates that the element is a member

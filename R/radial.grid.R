@@ -1,12 +1,12 @@
 radial.grid<-function(labels=NA,label.pos=NULL,radlab=FALSE,radial.lim=NULL,
- start=0,clockwise=FALSE,label.prop=1.1,grid.pos,rad.col="gray",
- grid.col="gray",grid.bg="transparent",show.radial.grid=TRUE,
+ start=0,clockwise=FALSE,label.prop=1.1,grid.pos=seq(0.25,1,0.25),
+ rad.col="gray",grid.col="gray",grid.bg="transparent",show.radial.grid=TRUE,
  start.plot=FALSE) {
 
  if(start.plot) {
   radial.span<-diff(radial.lim)
-  plot(0,type="n",xlim=c(-radial.span,radial.span),
-   ylim=c(-radial.span,radial.span),xlab="",ylab="",axes=FALSE)
+  plot(0,type="n",xlim=c(-1.2*radial.span,1.2*radial.span),
+   ylim=c(-1.2*radial.span,1.2*radial.span),xlab="",ylab="",axes=FALSE)
  }
  par(xpd=TRUE)
  if(is.null(label.pos)) label.pos<-seq(0,1.8*pi,length=9)

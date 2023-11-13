@@ -1,7 +1,7 @@
 barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
  col=NULL,border=par("fg"),main=NULL,xlab="",ylab="",xlim=NULL,ylim=NULL,x=NULL,
  staxx=FALSE,staxy=FALSE,height.at=NULL,height.lab=NULL,cex.axis=par("cex.axis"),
- pch=NULL,cylindrical=FALSE,shadow=FALSE,do.first=NULL,ylog=FALSE,srt=NULL) {
+ pch=NULL,cylindrical=FALSE,shadow=FALSE,do.first=NULL,ylog=FALSE,srt=NULL,...) {
 
  height.class<-attr(height,"class")
  if(!is.null(height.class)) {
@@ -46,7 +46,7 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
  }
  else miny<-ylim[1]
  plot(ylim[1],type="n",main=main,xlab=xlab,ylab=ylab,axes=FALSE,xlim=xlim,
-  ylim=ylim,xaxs="i",yaxs="i",log=ifelse(ylog,"y",""))
+  ylim=ylim,xaxs="i",yaxs="i",log=ifelse(ylog,"y",""),...)
  if(!is.null(do.first)) eval(parse(text=do.first))
  if(negy) abline(h=0)
  if(is.null(names.arg)) names.arg<-x
@@ -79,7 +79,7 @@ barp<-function(height,width=0.4,names.arg=NULL,legend.lab=NULL,legend.pos=NULL,
     polygon.shadow(c(x[bar]-width,x[bar]-width,x[bar]+width,x[bar]+width),
      c(bottoms,height[bar],height[bar],bottoms),
      offset=c(0.2*width,0.05*(height[bar]-ylim[2])))
-   }
+  }
   if(cylindrical)
    cylindrect(x-width,bottoms,x+width,height,col=barcol,
     border=border)

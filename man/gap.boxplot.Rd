@@ -9,7 +9,7 @@
  range=1.5,width=NULL,varwidth=FALSE,notch=FALSE,outline=TRUE,
  names,xlim=NA,ylim=NA,plot=TRUE,border=par("fg"),col=NULL,log="",
  axis.labels=NULL,axes=TRUE,pars=list(boxwex=0.8,staplewex=0.5,outwex=0.5),
- horizontal=FALSE,add=FALSE,at=NULL,main=NULL)
+ horizontal=FALSE,add=FALSE,at=NULL,main=NULL,xlab="",ylab="")
 }
 \arguments{
  \item{x}{numeric vector or a list of vectors}
@@ -39,10 +39,11 @@
  \item{pars}{optional parameters for consistency with \samp{boxplot}}
  \item{horizontal}{whether to plot horizontal boxplots - currently
   does nothing}
- \item{add}{whether to add the boxplot(s) to a current plot - currently
+ \item{add}{whether to add the boxplot(s) to an existing plot - currently
   does nothing.}
  \item{at}{optional horizontal locations for the boxplots.}
  \item{main}{a title for the plot.}
+ \item{xlab,ylab}{X and Y axis labels.}
 }
 \value{
  A list with the same structure as returned by \samp{boxplot}, except that

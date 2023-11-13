@@ -33,7 +33,7 @@
  the nearest neighbors. If you really want to use this with two labels, just
  eyeball the plot and work out in which direction the labels will go. Then
  pass the directions to \samp{thigmophobe.labels} as the \samp{text.pos}
- argument. When all else fails, look to samp{placeLabels}.
+ argument. When all else fails, look to \samp{placeLabels}.
 
  Both \samp{pointLabel} in the \pkg{maptools} package and \samp{spread.labs}
  in the \pkg{TeachingDemos} package use more sophisticated algorithms to

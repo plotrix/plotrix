@@ -2,7 +2,7 @@
 \title{Plot values on a circular grid of 0 to 360 degrees}
 \usage{
  polar.plot(lengths,polar.pos=NULL,labels,label.pos=NULL,
-  start=0,clockwise=FALSE,rp.type="r",...)
+  start=0,clockwise=FALSE,rp.type="r",loglen=FALSE,explab=FALSE,...)
 }
 \alias{polar.plot}
 \arguments{
@@ -17,6 +17,10 @@
  \item{clockwise}{Whether to increase angles clockwise rather than the
   default counterclockwise.}
  \item{rp.type}{Whether to plot radial lines, symbols or a polygon.}
+ \item{loglen}{Whether to log transform the \samp{length} values. Only base
+  10 logs are available.}
+ \item{explab}{Whether to use the default fixed (FALSE) or exponential (TRUE)
+  notation for the radial labels.}
  \item{...}{additional arguments passed to \samp{radial.plot} and
   then to \samp{plot}.}
 }

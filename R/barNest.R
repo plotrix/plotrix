@@ -4,7 +4,7 @@ barNest<-function (formula = NULL, data = NULL, FUN = c("mean", "sd",
     showall = TRUE, Nwidths = FALSE, barlabels = NULL, showlabels = TRUE, 
     mar = NULL, arrow.cap = NULL, trueval = TRUE) {
 
-    if(class(data) == "brklist") x<-data
+    if(inherits(data,"brklist")) x<-data
     else x <- brkdnNest(formula = formula, data = data, FUN = FUN, 
         trueval = trueval)
     getBreakListNames <- function(x) {

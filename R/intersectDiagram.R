@@ -10,13 +10,13 @@ intersectDiagram<-function(x,pct=FALSE,show.nulls=FALSE,xnames=NULL,
   }
   return(0)
  }
- if(!match(class(x),"intersectList",0)) {
+ if(!inherits(x,"intersectList")) {
   if(is.matrix(x) || is.data.frame(x)) {
    if(is.data.frame(x)) 
     x<-as.matrix(x)
     x<-makeIntersectList(x,xnames=xnames,sep=sep)
   }
-  if(!match(class(x),"intersectList",0)) 
+  if(!inherits(x,"intersectList")) 
    stop("x must be a matrix, data frame or intersectList")
  }
  oldmar<-par("mar")

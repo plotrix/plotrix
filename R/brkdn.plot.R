@@ -2,7 +2,7 @@ brkdn.plot<-function(vars,groups=NULL,obs=NULL,data,mct="mean",md="std.error",
  stagger=NULL,dispbar=TRUE,main="Breakdown plot",xlab=NULL,ylab=NULL,xaxlab=NA,
  ylim=NA,type="b",pch=1,lty=1,col=par("fg"),staxx=FALSE,yat=NULL,...) {
 
- if(class(vars) == "formula") {
+ if(inherits(vars,"formula")) {
   formbits<-all.vars(vars)
   vars<-formbits[1]
   groups<-formbits[2]

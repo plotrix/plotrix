@@ -3,7 +3,7 @@ gap.boxplot<-function (x, ..., gap = list(top = c(NA, NA), bottom = c(NA,
     outline = TRUE, names, xlim = NA, ylim = NA, plot = TRUE, 
     border = par("fg"), col = NULL, log = "", axis.labels = NULL, 
     axes = TRUE, pars = list(boxwex = 0.8, staplewex = 0.5, outwex = 0.5), 
-    horizontal = FALSE, add = FALSE, at = NULL, main = NULL) 
+    horizontal = FALSE, add = FALSE, at = NULL, main = NULL,xlab="",ylab="")
 {
     if (!is.na(gap$top[1])) 
         if (gap$top[1] > gap$top[2]) 
@@ -58,7 +58,7 @@ gap.boxplot<-function (x, ..., gap = list(top = c(NA, NA), bottom = c(NA,
     }
     bxgap$group <- at
     plot(0, xlim = xlim, ylim = ylim, type = "n", axes = FALSE, 
-        xlab = "", ylab = "", main = main)
+        main = main,xlab=xlab, ylab=ylab)
     plotlim <- par("usr")
     box()
     if (axes) 

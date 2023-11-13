@@ -10,14 +10,14 @@ A large number of specialized plots and accessory functions like color
 scaling, text placement and legends.
 }
 \details{
-\tabular{ll}{
-Package: \tab plotrix\cr
-Version: \tab 3.7-6\cr
-Date: \tab 2019-06-19\cr
-License: \tab GPL (>=2)\cr
-Packaged: \tab 2019-06-19 6:30:00 UTC; root\cr
-Built: \tab R 3.6.0; ; 2019-06-19 6:30:00 UTC; linux\cr
-}
+%% \tabular{ll}{
+%% Package: \tab plotrix\cr
+%% Version: \tab 3.8-1\cr
+%% Date: \tab 2021-09-08\cr
+%% License: \tab GPL (>=2)\cr
+%% Packaged: \tab 2021-09-08 03:45:00 UTC; root\cr
+%% Built: \tab R 4.0.3; ; 2021-09-08 03:45:00 UTC; linux\cr
+%% }
  The plotrix package is intended to provide a method for getting many sorts of
  specialized plots quickly, yet allow easy customization of those plots
  without learning a great deal of specialized syntax. There are three major

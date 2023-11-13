@@ -4,7 +4,7 @@
 # example: clock24.plot(rnorm(16)+3,seq(5.5,20.5,length.out=16))
 
 clock24.plot<-function(lengths,clock.pos,labels=0:23,minutes=FALSE,
- hm2dec=FALSE,label.pos=NULL,rp.type="r",...) {
+ hm2dec=FALSE,label.pos=NULL,rp.type="r",loglen=FALSE,explab=FALSE,...) {
  
  npos<-length(lengths)
  # if no positions are given, spread the lines out over the circle 
@@ -21,7 +21,7 @@ clock24.plot<-function(lengths,clock.pos,labels=0:23,minutes=FALSE,
  if(minutes) labels<-paste(labels,"00",sep=":")
  if(is.null(label.pos)) label.pos<-seq(0,pi*1.917,length.out=24)
  invisible(radial.plot(lengths,radial.pos,labels=labels,label.pos=label.pos,
-  rp.type=rp.type,start=pi/2,clockwise=TRUE,...))
+  rp.type=rp.type,start=pi/2,clockwise=TRUE,loglen=loglen,explab=explab,...))
 }
 
 # plots data as radial lines or a polygon starting at the right and going
@@ -30,19 +30,21 @@ clock24.plot<-function(lengths,clock.pos,labels=0:23,minutes=FALSE,
 # example: polar.plot(rnorm(20)+3,seq(90,280,by=10))
 
 polar.plot<-function(lengths,polar.pos=NULL,labels,label.pos=NULL,
- start=0,clockwise=FALSE,rp.type="r",...) {
+ start=0,clockwise=FALSE,rp.type="r",loglen=FALSE,explab=FALSE,...) {
  
- npos<-length(lengths)
- # if no positions are given, add the average distance between positions so that
- # the first and last line don't overlap
- if(is.null(polar.pos)) radial.pos<-seq(0,(2-2/(npos+1))*pi,length=npos)
+ npoints<-length(lengths)
+ if(is.null(polar.pos))  {
+  halfinc<-pi/npoints # evenly spaced, offset from zero
+  radial.pos<-seq(halfinc,2*pi-halfinc,length.out=npoints)
+ }
  else radial.pos<-pi*polar.pos/180
  if(start) start<-pi*start/180
- if(is.null(label.pos)) label.pos<-seq(0,1.89*pi,length=18)
- else label.pos<-pi*label.pos/180
- if(missing(labels)) labels<-as.character(seq(0,340,by=20))
+ if(missing(labels)) {
+  labels<-label.pos<-seq(0,340,by=20)
+  label.pos<-pi*label.pos/180
+ }
  invisible(radial.plot(lengths,radial.pos,labels,label.pos,start=start,
-  clockwise=clockwise,rp.type=rp.type,...))
+  clockwise=clockwise,rp.type=rp.type,loglen=loglen,explab=explab,...))
 }
 
 # plots radial lines of length 'lengths', symbols at 'lengths' from the
@@ -59,9 +61,12 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
  rad.col="gray",grid.col="gray",grid.bg="transparent",grid.left=FALSE,
  grid.unit=NULL,point.symbols=1,point.col=par("fg"),show.centroid=FALSE,
  radial.lim=NULL,radial.labels=NULL,boxed.radial=TRUE,poly.col=NA,
- add=FALSE,...) {
+ add=FALSE,loglen=FALSE,explab=FALSE,...) {
  
- if(is.null(radial.lim)) radial.lim<-range(lengths)
+ # first convert lengths to log values if desired
+ if(loglen) lengths<-do.call(log10,list(lengths))
+ if(is.null(radial.lim)) radial.lim<-c(floor(min(lengths,na.rm=TRUE)),
+  ceiling(max(lengths,na.rm=TRUE)))
  length.dim<-dim(lengths)
  if(is.null(length.dim)) {
   npoints<-length(lengths)
@@ -75,8 +80,11 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
  }
  lengths<-lengths-radial.lim[1]
  lengths[lengths<0]<-NA
- if(is.null(radial.pos))
-  radial.pos<-seq(0,pi*(2 - 2 * (rp.type != "l")/npoints),length.out=npoints)
+ if(is.null(radial.pos)) {
+  halfinc<-pi/npoints # evenly spaced, offset from zero
+  radial.pos<-seq(halfinc,2*pi-halfinc,length.out=npoints)
+ }
+ if(is.null(label.pos)) label.pos=radial.pos
  radial.pos.dim<-dim(radial.pos)
  if(is.null(radial.pos.dim))
   radial.pos<-matrix(rep(radial.pos,nsets),nrow=nsets,byrow=TRUE)
@@ -85,13 +93,32 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
  if(clockwise) radial.pos<--radial.pos
  if(start) radial.pos<-radial.pos+start
  if(show.grid) {
-  if(length(radial.lim) < 3) grid.pos<-pretty(radial.lim)
-  else grid.pos<-radial.lim
-  if(grid.pos[1] < radial.lim[1]) grid.pos<-grid.pos[-1]
+  if(loglen == 0) {
+   if(length(radial.lim) < 3) grid.pos<-pretty(radial.lim)
+   else grid.pos<-radial.lim
+  } else {
+   # log scaling is ON
+   rangerl<-ceiling(radial.lim)
+   grid.pos<-rangerl[1]:rangerl[2]
+   oddnum<-length(grid.pos) %% 2
+   if(oddnum) dropit<-2
+   while(length(grid.pos) > 6) {
+    if(oddnum) {
+     grid.pos<-grid.pos[-dropit]
+     dropit<-dropit+1
+    } else {
+     grid.pos<-grid.pos[seq(1,length(grid.pos),by=2)]
+    }
+   }
+   if(is.null(radial.labels)) {
+    if(explab) radial.labels<-paste0(10,"^",grid.pos)
+    else radial.labels<-10^grid.pos
+   }
+   if(grid.pos[1] < radial.lim[1]) grid.pos[1]<-radial.lim[1]
+   angles<-seq(0,1.96*pi,by=0.04*pi)
+  }
   maxlength<-max(grid.pos-radial.lim[1])
-  angles<-seq(0,1.96*pi,by=0.04*pi)
- }
- else {
+ } else {
   grid.pos<-NA
   maxlength<-diff(radial.lim)
  }
@@ -100,14 +127,6 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
   par(mar=mar,pty="s")
   plot(c(-maxlength,maxlength),c(-maxlength,maxlength),type="n",axes=FALSE,
    main=main,xlab=xlab,ylab=ylab)
-  if(is.null(label.pos)) {
-   if(is.null(labels)) nlpos<-ifelse(npoints > 8,8,npoints)
-   else {
-    if(is.na(labels[1])) nlpos<-ifelse(npoints > 8,8,npoints)
-    else nlpos<-length(labels)
-   }
-   label.pos<-seq(0,pi*(2-2/nlpos),length.out=nlpos)
-  }
   if(show.grid) {
    radial.grid(labels=labels,label.pos=label.pos,radlab=radlab,
     radial.lim=radial.lim,start=start,clockwise=clockwise,
@@ -160,7 +179,12 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
    polygon(xpos,ypos,border=linecol,col=polycol,lty=ltype,
     lwd=lwidth,...)
   if(match("s",rptype,0))
-   points(xpos,ypos,pch=pointsymbols,col=pointcol,...)
+   points(xpos,ypos,pch=point.symbols,col=pointcol,...)
+  if(match("t",rptype,0)) {
+   if(boxed.radial)
+    boxed.labels(xpos,ypos,point.symbols,col=pointcol)
+   else text(xpos,ypos,point.symbols,col=pointcol)
+  }
   if(match("l",rptype,0))
    lines(xpos,ypos,lty=ltype,lwd=lwidth,col=linecol,...)
   if(show.centroid) {
@@ -205,7 +229,7 @@ radial.plot<-function(lengths,radial.pos=NULL,labels=NA,label.pos=NULL,
   if(is.null(radial.labels)) radial.labels<-grid.pos
   if(!is.null(grid.unit))
    radial.labels[length(grid.pos)]<-
-    paste(radial.labels[length(grid.pos)],grid.unit)
+    paste0(radial.labels[length(grid.pos)],grid.unit)
   if(boxed.radial)
    boxed.labels(xpos,ypos,radial.labels,border=FALSE,
     cex=par("cex.lab"))

@@ -110,7 +110,7 @@ a list of (lists of) data frames with summary statistics to be plotted
 }
 
 \references{
-Scibilia, Bruno (2013). Using Multi-Vari Charts to Analyze Families of Variations. \url{http://blog.minitab.com/blog/applying-statistics-in-quality-projects/using-multi-vari-charts-to-analyze-families-of-variations}.
+Scibilia, Bruno (2013). Using Multi-Vari Charts to Analyze Families of Variations. \url{https://blog.minitab.com/en/using-variability-charts-to-analyze-call-center-wait-times}.
 }
 
 \author{

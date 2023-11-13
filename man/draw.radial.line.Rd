@@ -36,7 +36,10 @@
  lty is ignored.
 }
 \author{Ted Toal}
-\seealso{\link{lines}, link{draw.arc}}
+\seealso{\
+  \code{\link{lines}},
+  \code{\link{draw.arc}}.
+}
 \examples{
  plot(0, xlim=c(1,5), ylim=c(1,5), main="Test of radial lines", xlab="", ylab="", type="n")
  points(3, 3, pch=20)

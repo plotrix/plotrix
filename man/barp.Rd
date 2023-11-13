@@ -7,7 +7,7 @@
  col=NULL,border=par("fg"),main=NULL,xlab="",ylab="",xlim=NULL,ylim=NULL,
  x=NULL,staxx=FALSE,staxy=FALSE, height.at=NULL,height.lab=NULL,
  cex.axis=par("cex.axis"),pch=NULL,cylindrical=FALSE,shadow=FALSE,
- do.first=NULL,ylog=FALSE,srt=NULL)
+ do.first=NULL,ylog=FALSE,srt=NULL,...)
 }
 \arguments{
  \item{height}{A numeric vector, matrix or data frame that will be represented
@@ -36,7 +36,9 @@
  \item{do.first}{An optional string that will be evaluated before anything
   else is displayed on the plot. Useful for background colors or lines.}
  \item{ylog}{Logical for whether a log scale is to be used. see details.}
- \item{srt}{Rotation of axis labels if staxx or staxy is TRUE (see \samp{staxlab}).}
+ \item{srt}{Rotation of axis labels if staxx or staxy is TRUE (see
+  \samp{staxlab}).}
+ \item{...}{arguments passed to \samp{plot}}.
 }
 \value{
  A list containing two components of the same form as \samp{height}:

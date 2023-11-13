@@ -10,7 +10,7 @@
   extremes=NA,cellcolors=NA,show.legend=FALSE,nslices=10,xlab="Column",
   ylab="Row",do.hex=FALSE,axes=TRUE,show.values=FALSE,vcol=NA,vcex=1,
   border="black",na.color=NA,xrange=NULL,color.spec="rgb",yrev=TRUE,
-  xat=NULL,yat=NULL,Hinton=FALSE,...)
+  xat=NULL,yat=NULL,Hinton=FALSE,add=FALSE,...)
 }
 \arguments{
  \item{x}{data values}
@@ -49,6 +49,8 @@
  \item{Hinton}{Whether to display a Hinton diagram in which the magnitude of
   cell values is proportional to the size of the squares and the sign is
   indicated by the color of the squares.}
+ \item{add}{If TRUE, no plot is created and the rectangles are displayed over
+  whatever is on the current device (see the "iris" example).}
  \item{...}{arguments passed to \samp{plot}.}
 }
 \value{nil}
@@ -74,6 +76,9 @@
  squares are proportional to the absolute value of \samp{x} and the colors
  of the squares indicate the sign of the \samp{x} values will be displayed.
  This only works with squares.
+ 
+ If \samp{add} is true, the color matrix is added to the current plot. This
+ is probably only useful when displaying plots that are mostly transparent.
 }
 \note{
  The function \link{image} performs almost the same when passed a
@@ -130,5 +135,31 @@
  waffle.col<-fill.corner(c(rep("red",18),rep("blue",45)),10,10)
  color2D.matplot(matrix(1:100,nrow=10),cellcolors=waffle.col,yrev=FALSE,
   border="lightgray",xlab="",ylab="",main="Waffle plot",axes=FALSE)
+ # coarse density plot of the iris petal data
+ spnames<-unique(iris$Species)
+ spcols<-c("red","green","blue")
+ matmax<-list()
+ cindx<-1
+ for(isp in spnames) {
+  petal_mat<-makeDensityMatrix(iris[iris$Species == isp,"Petal.Length"],
+   iris[iris$Species == isp,"Petal.Width"],
+   nx=20,ny=20,xlim=c(1,7),ylim=c(0,2.5),geocoord=FALSE)
+  # center the maximum markers in the cells
+  matmax[[cindx]]<-lapply(find_max_cell(petal_mat),"-",0.5)
+  if(isp == "setosa")
+   color2D.matplot(petal_mat,main="Iris petal length by petal width",
+    xlab="Petal length (cm)",ylab="Petal width (cm)",axes=FALSE,
+    cellcolors=color.scale(petal_mat,extremes=spcols[cindx],alpha=c(0,1)),
+    border=NA,yrev=FALSE)
+  else
+   color2D.matplot(petal_mat,border=NA,yrev=FALSE,add=TRUE,
+   cellcolors=color.scale(petal_mat,extremes=spcols[cindx],alpha=c(0,1)))
+  cindx<-cindx+1
+ }
+ axis(1,at=seq(0,20,by=3.33),labels=1:7)
+ axis(2,at=seq(0,20,length.out=4),labels=seq(1,2.5,by=0.5))
+ legend(1,6,paste0(spnames,"(",1:3,")"),fill=c("red","green","blue"))
+ for(cindx in 1:3)
+  text(matmax[[cindx]],as.character(cindx),col="white",cex=1.5)
 }
 \keyword{misc}

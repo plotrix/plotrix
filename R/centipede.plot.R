@@ -34,7 +34,7 @@ centipede.plot<-function(segs,mct="mean",lower.limit="std.error",
     upper.limit=upper.limit)
   else stop("If segs is a list, all the components must be numeric")
  }
- if(class(segs) == "dstat") {
+ if(inherits(segs,"dstat")) {
   midpoint<-"mean"
   if(lower.limit == "var") {
    if(rownames(segs)[2] == "var") ll<-segs[1,]-segs[2,]

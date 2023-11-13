@@ -15,7 +15,8 @@ gap.barplot<-function (y,gap,xaxlab,xtics,yaxlab,ytics,xlim=NA,ylim=NA,
  if(missing(xaxlab)) xaxlab <- as.character(xtics)
  if(is.na(xlim[1])) xlim <- range(xtics)
  if(is.na(ylim[1])) ylim <- c(min(valid.y)-gapsize,max(valid.y)-gapsize)
- if(ylim[1] < 0) ylim[1]<-0
+ cat("ylim",ylim,"\n")
+ #if(ylim[1] < 0) ylim[1]<-0
  if(missing(ytics)) ytics <- pretty(y)
  if(any(ytics<0)) ytics<-ytics[ytics >= 0]
  if(missing(yaxlab)) yaxlab <- ytics

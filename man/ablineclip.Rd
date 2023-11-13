@@ -11,8 +11,8 @@
 \arguments{
  \item{a}{Intercept.}
  \item{b}{Slope.}
- \item{h}{the x-value(s) for vertical line(s).}
- \item{v}{the y-value(s) for horizontal line(s).}
+ \item{h}{the y-value(s) for horizontal line(s).}
+ \item{v}{the x-value(s) for vertical line(s).}
  \item{reg}{Fitted lm object. }
  \item{coef}{Coefficients, typically intercept and slope.}
  \item{untf}{How to plot on log coordinates, see \samp{abline}.}
@@ -23,12 +23,9 @@
  \samp{ablineclip} sets a new clipping region and then calls \samp{abline}.
  If any of the four clipping limits is NULL, the values from \samp{par("usr")}
  are substituted. After the call to \samp{abline}, the old clipping region
- is restored. In order to make \samp{clip} work, there is a call to \samp{abline}
- that draws a line off the plot.
+ is restored. In order to make \samp{clip} work, there is a call to \samp{abline} that draws a line off the plot.
 
- Multiple lines of the same type can be drawn in a single call, but the clipping
- region must be the same for each group of lines. Thanks to Berry Boessenkool
- for pointing this out.
+ Multiple lines of the same type can be drawn in a single call, but the clipping region must be the same for each group of lines. Thanks to Berry Boessenkool for pointing this out.
 }
 \value{
  None. Adds to the current plot.

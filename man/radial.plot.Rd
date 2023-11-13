@@ -14,7 +14,8 @@
  show.grid=TRUE,show.grid.labels=4,show.radial.grid=TRUE,rad.col="gray",
  grid.col="gray",grid.bg="transparent",grid.left=FALSE,grid.unit=NULL,
  point.symbols=1,point.col=par("fg"),show.centroid=FALSE,radial.lim=NULL,
- radial.labels=NULL,boxed.radial=TRUE,poly.col=NA,add=FALSE,...)
+ radial.labels=NULL,boxed.radial=TRUE,poly.col=NA,add=FALSE,
+ loglen=FALSE,explab=FALSE,...)
 }
 \arguments{
  \item{lengths}{A numeric data vector or matrix. If \samp{lengths}
@@ -32,7 +33,7 @@
   3 o'clock position.}
  \item{clockwise}{Whether to interpret positive positions as clockwise from
   the starting point. The default is counterclockwise.}
- \item{rp.type}{Whether to draw (r)adial lines, a (p)olygon, (s)ymbols
+ \item{rp.type}{Whether to draw (r)adial lines, a (p)olygon, (s)ymbols, (t)ext,
   or some combination of these. If \samp{lengths} is a matrix and rp.type is
   a vector, each row of \samp{lengths} can be displayed differently.}
  \item{label.prop}{The label position radius as a proportion of the 
@@ -53,17 +54,24 @@
  \item{grid.bg}{Fill color of above.}
  \item{grid.left}{Whether to place the radial grid labels on the left side.}
  \item{grid.unit}{Optional unit description for the grid.}
- \item{point.symbols}{The symbols for plotting (as in pch).}
+ \item{point.symbols}{The symbols for plotting (as in pch) or if
+  \samp{rp.type} is "t", the text that will be displayed.}
  \item{point.col}{Colors for the symbols.}
  \item{show.centroid}{Whether to display a centroid.}
  \item{radial.lim}{The range of the grid circle. Defaults to
   \samp{pretty(range(lengths))}, but if more than two values are passed, the
   exact values will be displayed.}
  \item{radial.labels}{Optional labels for the radial grid. The default is
-  the values of radial.lim.}
+  the values of radial.lim, or if loglen is TRUE, the corresponding log
+  values.}
  \item{boxed.radial}{Whether to use boxed.labels or text for radial labels.}
  \item{poly.col}{Fill color if polygons are drawn. Use NA for no fill.}
  \item{add}{Whether to add one or more series to an existing plot.}
+ \item{loglen}{Whether to log transform the \samp{length} values. Only base
+  10 logs are available. Keep in mind that the values actually plotted will be
+  the logarithms, although the exponentiated logs are displayed.}
+ \item{explab}{Whether to use the default fixed (FALSE) or exponential (TRUE)
+  notation for the radial labels.}
  \item{...}{Additional arguments are passed to \samp{plot}.}
 }
 \value{
@@ -72,9 +80,10 @@
 }
 \details{
  \samp{radial.plot} displays a plot of radial lines, polygon(s),
- symbols or a combination of these centered at the midpoint of
+ symbols, text or a combination of these centered at the midpoint of
  the plot frame, the lengths, vertices or positions corresponding
- to the numeric magnitudes of the data values. If \samp{show.centroid}
+ to the numeric magnitudes of the data values. Note that if log transformation is requested with \samp{loglen}, the values plotted will be the logs, not the values displayed on the plot.
+ If \samp{show.centroid}
  is TRUE, an enlarged point at the centroid of values is displayed. The
  centroid is calculated as the average of x and y values unless 
  \samp{rp.type="p"}. In this case, the barycenter of the polygon is
@@ -82,6 +91,10 @@
  the centroid that you really want and add it with the \samp{points} function.
  Note that if the observations are not taken at equal intervals around the
  circle, the centroid may not mean much.
+ 
+ The \samp{text} option for \samp{rp.type} allows the user to place text at
+ each point. It is useful for adding labels at arbitrary points on an existing
+ plot or perhaps labelling points with letters or digits rather than different symbols. See the last example.
   
  If the user wants to plot several sets of lines, points or symbols by
  passing matrices or data frames of \samp{lengths} and \samp{radial.pos},
@@ -113,16 +126,32 @@
  \samp{radial.plot} actually does the plotting, another function is usually 
  called for specific types of cyclic data.
 }
-\author{Jim Lemon - thanks to Jeremy Claisse and Antonio Hernandez Matias
- for the \samp{lty} and \samp{rp.type} suggestions respectively, Patrick
- Baker for the request that led to \samp{radlab}, Thomas Steiner for
- the request for the \samp{radial.lim} and \samp{radial.labels} modifications,
- Evan Daugharty for requesting the \samp{add} argument, James MacCarthy
- for requesting better radial labels, Steve Ellison for noticing that
- the return values of the functions had changed, Don Dennerline for
- requesting the rank clock, Mehdi Nellen for the different colors for
- the radial and circumferential lines for the grid and Mayeul Kauffmann for
- noticing the radial label bug when a separate radial.grid was included.}
+\author{Jim Lemon}
+\note{Thanks to
+ Jeremy Claisse and Antonio Hernandez Matias for the
+  \samp{lty} and \samp{rp.type} suggestions respectively
+
+ Patrick Baker for the request that led to \samp{radlab}
+
+ Thomas Steiner for the request for the \samp{radial.lim} and \samp{radial.labels} modifications
+
+ Evan Daugharty for requesting the \samp{add} argument
+
+ James MacCarthy for requesting better radial labels
+
+ Steve Ellison for noticing that the return values of the functions had changed
+
+ Don Dennerline for requesting the rank clock
+
+ Mehdi Nellen for the different colors for the radial and circumferential lines for the grid
+
+ Mayeul Kauffmann for noticing the radial label bug when a separate radial.grid was included
+
+ Ogbos Okike for requesting a text option for rp.type
+
+ Keziah Conroy for requesting the log option
+
+}
 \seealso{\link{polar.plot},\link{clock24.plot}}
 \examples{
  testlen<-runif(10,0,10)
@@ -133,11 +162,12 @@
  testlen<-c(sin(seq(0,1.98*pi,length=100))+2+rnorm(100)/10)
  testpos<-seq(0,1.98*pi,length=100)
  radial.plot(testlen,testpos,rp.type="p",main="Test Polygon",line.col="blue",
-  labels=LETTERS[1:8])
+  labels=LETTERS[1:8],label.pos=seq(0,14*pi/8,length.out=8))
  # now do a 12 o'clock start with clockwise positive
  radial.plot(testlen,testpos,start=pi/2,clockwise=TRUE,show.grid.labels=2,
   rp.type="s",main="Test Symbols (clockwise)",radial.lim=c(0,3.5),
-  point.symbols=16,point.col="green",show.centroid=TRUE,labels=LETTERS[1:6])
+  point.symbols=16,point.col="green",show.centroid=TRUE,
+  labels=LETTERS[1:6],label.pos=seq(0,10*pi/6,length.out=6))
  # one without the circular grid and multiple polygons
  # see the "diamondplot" function for variation on this
  posmat<-matrix(sample(2:9,30,TRUE),nrow=3)
@@ -148,7 +178,10 @@
  ions<-c(3.2,5,1,3.1,2.1,4.5)
  ion.names<-c("Na","Ca","Mg","Cl","HCO3","SO4")
  radial.plot(ions,labels=ion.names,rp.type="p",main="Dissolved ions in water",
-  grid.unit="meq/l",radial.lim=c(0,5),poly.col="yellow",show.grid.labels=1)
+  grid.unit="meq/l",radial.lim=c(0,5),poly.col="yellow",show.grid.labels=3)
+ # add the names of the ions to the plot
+ radial.plot(ions,rp.type="t",point.symbols=ion.names,radial.lim=c(0,5),
+  add=TRUE)
  # add points inside the polygon - radial.lim is supplied by plotrix_env
  radial.plot(ions-0.4,rp.type="s",point.symbols=4,point.col="red",add=TRUE)
  radmat<-matrix(c(sample(1:4,4),sample(1:4,4),sample(1:4,4),sample(1:4,4),

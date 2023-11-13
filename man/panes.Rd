@@ -73,14 +73,18 @@
  par(mar=c(4,2,2,2))
  tso<-c(0.2,0.3,0.5,0.4,0.6,0.8,0.1)
  plot(tso,type="n",axes=FALSE,xlab="")
- # the following needs a Unicode locale to work
+\donttest{
+ # the following needs a Unicode locale to work (and a suitable font)
+ # Few devices can plot these -- and not the default pdf() for checking.
  points(1:7,tso,pch=c(rep(-0x263a,6),-0x2639),cex=2)
+}
  axis(1,at=1:7,
   labels=c("Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday"))
  axis(2,at=seq(0.1,0.9,by=0.2))
  box()
  tab.title("The sad outcome",tab.col="#66ee66")
  mtext("A lot of malarkey",side=1,line=2.5)
+
  par(oldpar)
 }
 \keyword{misc}

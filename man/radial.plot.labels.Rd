@@ -2,7 +2,7 @@
 \title{Display labels on a circular grid}
 \usage{
  radial.plot.labels(lengths,radial.pos=NULL,units="radians",radial.lim=NULL,
-  start=0,clockwise=FALSE,labels,adj=NULL,pos=NULL,...)
+  start=0,clockwise=FALSE,labels,adj=NULL,pos=NULL,boxed.labels=FALSE,...)
 }
 \alias{radial.plot.labels}
 \arguments{
@@ -21,7 +21,9 @@
  \item{labels}{text labels to display on the plot.}
  \item{adj}{Text justification as in the \samp{text} function.}
  \item{pos}{Text position as in the \samp{text} function.}
- \item{...}{additional arguments passed to \samp{text}.}
+ \item{boxed.labels}{Whether to use \samp{boxed.labels} or \samp{text}.}
+ \item{...}{additional arguments passed to \samp{boxed.labels} or 
+  \samp{text}.}
 }
 \description{
  \samp{radial.plot.labels} displays a labels on a circular plot produced by
@@ -40,9 +42,9 @@
  # do the labels in clock24 units
  testpos<-c(6.74,8.3,10.55,12.33,13.75,15.9,17.15,19.36,21.02,23.27)
  oldpar<-clock24.plot(testlen,testpos,main="Test radial.plot.labels",
-  rp.type="s",point.symbols=3,point.col="blue")
+  rp.type="s",point.symbols=3,point.col="green")
  radial.plot.labels(testlen,testpos,units="clock24",labels=LETTERS[1:10],
-  pos=3,col="blue")
+  pos=3,col="red")
  testangle<-c(25,42,67,94,128,173,191,234,268,307)
  # now a polar plot
  polar.plot(testlen,testangle,main="Test radial.plot.labels",rp.type="p",

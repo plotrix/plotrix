@@ -43,7 +43,7 @@
  remaining at (x,y).
 
  The \samp{density} and \samp{angle} arguments have the same behavior as in the
- \samp{rect} function. The \samp{adj, font} and {vfont} arguments have the same
+ \samp{rect} function. The \samp{adj, font} and \samp{vfont} arguments have the same
  behavior as in the \samp{text} function. The \samp{lty} and \samp{lwd} 
  arguments have the same behavior as in the \samp{lines} function.
 }

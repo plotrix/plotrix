@@ -2,7 +2,7 @@
 \title{Plot values on a 24 hour "clockface"}
 \usage{
  clock24.plot(lengths,clock.pos,labels=0:23,minutes=FALSE,
-  label.pos=NULL,rp.type="r",...)
+  hm2dec=FALSE,label.pos=NULL,rp.type="r",loglen=FALSE,explab=FALSE,...)
 }
 \alias{clock24.plot}
 \arguments{
@@ -12,8 +12,13 @@
   These must be in decimal hours and will be rescaled to radians.}
  \item{labels}{Labels to place at the circumference.}
  \item{minutes}{Whether to add minutes (".00") to the labels.}
+ \item{hm2dec}{Whether to convert HH:MM clock positions to decimal hours.}
  \item{label.pos}{Radial positions of the labels.}
  \item{rp.type}{Whether to plot radial lines, symbols or a polygon.}
+ \item{loglen}{Whether to log transform the \samp{length} values. Only base
+  10 logs are available.}
+ \item{explab}{Whether to use the default fixed (FALSE) or exponential (TRUE)
+  notation for the radial labels.}
  \item{...}{additional arguments are passed to \samp{radial.plot} and
   then to \samp{plot}.}
 }

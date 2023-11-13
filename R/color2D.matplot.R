@@ -23,11 +23,20 @@ fill.corner<-function(x,nrow,ncol,na.value=NA) {
  return(newmat)
 }
 
+# returns a plot.coord list of the indices of the maximum 
+# or minimum value in a matrix
+find_max_cell<-function(x,max=TRUE) {
+ if(max)
+  return(list(x=which.max(apply(x,2,max)),y=which.max(apply(x,1,max))))
+ else
+  return(list(x=which.min(apply(x,2,min)),y=which.min(apply(x,1,min))))
+}
+
 color2D.matplot<-function(x,cs1=c(0,1),cs2=c(0,1),cs3=c(0,1),
  extremes=NA,cellcolors=NA,show.legend=FALSE,nslices=10,xlab="Column",
  ylab="Row",do.hex=FALSE,axes=TRUE,show.values=FALSE,vcol=NA,vcex=1,
  border="black",na.color=NA,xrange=NULL,color.spec="rgb",yrev=TRUE,
- xat=NULL,yat=NULL,Hinton=FALSE,...) {
+ xat=NULL,yat=NULL,Hinton=FALSE,add=FALSE,...) {
  
  if(diff(range(x,na.rm=TRUE)) == 0) {
   if(Hinton) stop("No differences to display in Hinton plot.")
@@ -40,14 +49,15 @@ color2D.matplot<-function(x,cs1=c(0,1),cs2=c(0,1),cs3=c(0,1),
   oldpar<-par("xaxs","yaxs","xpd","mar")
   par(xaxs="i",yaxs="i")
   if(do.hex) par(mar=c(5,4,4,4))
-  plot(c(0,xdim[2]),c(0,xdim[1]),xlab=xlab,ylab=ylab,type="n",axes=FALSE,...)
+  if(!add)
+   plot(c(0,xdim[2]),c(0,xdim[1]),xlab=xlab,ylab=ylab,type="n",axes=FALSE,...)
   oldpar$usr<-par("usr")
   if(!do.hex) {
    box()
    pos<-0
   }
   else pos<- -0.3
-  if(axes) {
+  if(axes && !add) {
    if(is.null(xat)) xat<-pretty(0:xdim[2])[-1]
    axis(1,at=xat-0.5,labels=xat,pos=pos)
    if(is.null(yat)) yat<-pretty(0:xdim[1])[-1]

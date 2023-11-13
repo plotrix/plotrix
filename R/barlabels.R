@@ -1,4 +1,6 @@
-barlabels<-function(xpos,ypos,labels=NULL,cex=1,prop=0.5,miny=0,offset=0,...) {
+barlabels<-function(xpos,ypos,labels=NULL,cex=1,prop=0.5,miny=0,offset=0,
+ nobox=FALSE,...) {
+ 
  if(is.data.frame(ypos)) ypos<-as.matrix(ypos)
  if(is.null(labels)) labels<-ypos
  # usually don't want to display zero labels
@@ -18,6 +20,7 @@ barlabels<-function(xpos,ypos,labels=NULL,cex=1,prop=0.5,miny=0,offset=0,...) {
  else ypos<-ypos*prop
  # allow labels to extend beyond the plot area
  par(xpd=TRUE)
- boxed.labels(xpos[display],ypos[display],labels[display],cex=cex,...)
+ if(nobox) text(xpos[display],ypos[display],labels[display],cex=cex,...)
+ else boxed.labels(xpos[display],ypos[display],labels[display],cex=cex,...)
  par(xpd=FALSE)
 }

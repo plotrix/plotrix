@@ -9,7 +9,8 @@
 \arguments{
  \item{x}{a numeric vector, matrix or data frame}
  \item{cs1,cs2,cs3}{color parameters for scaling \samp{x}}
- \item{alpha}{Value for transparency in colors.}
+ \item{alpha}{Value for transparency in colors. If more than one value is
+  passed, the alpha values will be transformed like the colors.}
  \item{extremes}{The colors for the extreme values of \samp{x} (RGB only).}
  \item{na.color}{The color to use for NA values of \samp{x}.}
  \item{xrange}{An explicit range to use in the transformation.}
@@ -52,6 +53,11 @@
   adding an argument to do this in one shot. Until then, see the second
   example for \samp{color2D.matplot} and also the \samp{diverge.hcl} and
   \samp{diverge.hsv} functions in the \pkg{colorspace} package.
+  
+  When passing more than one alpha value, it will be transformed like the 
+  colors. This allows matrices with concentrations of high values to be 
+  overplotted to illustrate group locations and separations. See the iris 
+  example in \samp{color2D.matplot}.
 }
 \note{
  The function is useful for highlighting a numeric dimension or adding

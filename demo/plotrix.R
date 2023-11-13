@@ -319,25 +319,24 @@ if(answer == "2") {
  cat("5. panes - Prepare a 'panel' type plot\n")
  cat("6. perspx - Perspective plot\n")
  cat("7. pie3D - 3D pie chart\n")
- cat("8. plot.dendrite - Display categorical data as dendrites\n")
- cat("9. plotH - Scatterplot with histogram-like bars\n")
- cat("A. polar.plot - Plot values on a 360 degree chart\n")
- cat("B. pyramid.plot - Pyramid plot\n")
- cat("C. radial.pie - Plot sectors/annuli on a circular grid\n")
- cat("D. radial.plot - Plot values on a 0 to 2*pi grid\n")
- cat("E. raw.means.plot - Plot for experimental designs\n")
- cat("F. sizeplot - Plot with repeated symbols by size\n")
- cat("G. sizetree - Categorical breakdown as stacked rectangles\n")
- cat("H. size_n_color - Display circles with specified size and color\n")
- cat("I. stackpoly - Like a line plot with fill under the lines\n")
- cat("J. staircase.plot - Display a staircase plot\n")
- cat("K. taylor.diagram - Display a Taylor diagram\n")
- cat("L. triax.plot - Triangle (three axis) plot\n")
- cat("M. twoord.plot - Plot with two ordinates\n")
- cat("N. vectorField - Diaplay magnitude/direction vectors\n")
- cat("O. violin_plot - Display a violin plot\n")
- cat("P. weighted.hist - Display a weighted histogram\n")
- cat("Q. zoomInPlot - Display a plot with a magnified section\n")
+ cat("8. plotH - Scatterplot with histogram-like bars\n")
+ cat("9. polar.plot - Plot values on a 360 degree chart\n")
+ cat("A. pyramid.plot - Pyramid plot\n")
+ cat("B. radial.pie - Plot sectors/annuli on a circular grid\n")
+ cat("C. radial.plot - Plot values on a 0 to 2*pi grid\n")
+ cat("D. raw.means.plot - Plot for experimental designs\n")
+ cat("E. sizeplot - Plot with repeated symbols by size\n")
+ cat("F. sizetree - Categorical breakdown as stacked rectangles\n")
+ cat("G. size_n_color - Display circles with specified size and color\n")
+ cat("H. stackpoly - Like a line plot with fill under the lines\n")
+ cat("I. staircase.plot - Display a staircase plot\n")
+ cat("J. taylor.diagram - Display a Taylor diagram\n")
+ cat("K. triax.plot - Triangle (three axis) plot\n")
+ cat("L. twoord.plot - Plot with two ordinates\n")
+ cat("M. vectorField - Diaplay magnitude/direction vectors\n")
+ cat("N. violin_plot - Display a violin plot\n")
+ cat("O. weighted.hist - Display a weighted histogram\n")
+ cat("P. zoomInPlot - Display a plot with a magnified section\n")
  cat("X. Exit\n")
  whichplot<-toupper(readline("Choose a plot - "))
  if(whichplot == "1") {
@@ -415,28 +414,17 @@ if(answer == "2") {
   par(mar=c(5,4,4,2))
  }
  if(whichplot == "8") {
-  sex<-sample(c("M","F"),100,TRUE)
-  hair<-c(sample(c("Blond","Black","Brown","Red"),90,TRUE),rep(NA,10))
-  eye<-sample(c("Blue","Black","Brown","Green"),100,TRUE)
-  charac<-data.frame(sex=sex,hair=hair,eye=eye)
-  characlist<-makeDendrite(charac)
-  shecol<-c(Black="black",Blond="yellow",Blue="blue",Brown="brown",
-   F="pink",Green="green",M="lightblue","NA"="gray",Red="orange")
-  plot.dendrite(characlist,names(charac),main="Test dendrogram",
-   col=shecol)
- }
- if(whichplot == "9") {
   d<-data.frame(x=c(1,5,10:20),y=runif(13)+1,
    g=factor(sample(c("A","B","C"),13,replace=TRUE)))
   # new plotH function with formula notation
   plotH(y~x,data=d)
  }
- if(whichplot == "A") {
+ if(whichplot == "9") {
   testlen<-c(rnorm(36)*2+5)
   testpos<-seq(0,350,by=10)
   polar.plot(testlen,testpos,main="Test Polar Plot",lwd=3,line.col=4)
  }
- if(whichplot == "B") {
+ if(whichplot == "A") {
   xy.pop<-c(3.2,3.5,3.6,3.6,3.5,3.5,3.9,3.7,3.9,3.5,3.2,2.8,2.2,1.8,
    1.5,1.3,0.7,0.4)
   xx.pop<-c(3.2,3.4,3.5,3.5,3.5,3.7,4,3.8,3.9,3.6,3.2,2.5,2,1.7,1.5,
@@ -450,7 +438,7 @@ if(answer == "2") {
    main="Australian population pyramid 2002",lxcol=mcol,rxcol=fcol,
    gap=0.5,show.values=TRUE))
  }
- if(whichplot == "C") {
+ if(whichplot == "B") {
   pie1<-c(3,6,5,4,7,8,9,1,4)
   pie2<-list(0:3,1:6,2:5,1:4,0:7,4:8,2:9,0:1,0:4)
   pie3<-sample(10:60,36)
@@ -458,27 +446,27 @@ if(answer == "2") {
   for(sector in 2:36) pie4[[sector]]<-sort(sample(1:60,8))
   par(radial.pie(pie1,labels=LETTERS[1:9]))
  }
- if(whichplot == "D") {
+ if(whichplot == "C") {
   testlen<-runif(10,0,10)
   testpos<-seq(0,18*pi/10,length=10)
   testlab<-letters[1:10]
   par(radial.plot(testlen,testpos,main="Test Radial Lines",line.col="red",
    lwd=3,rad.col="lightblue"))
  }
- if(whichplot == "E") {
+ if(whichplot == "D") {
   x <- data.frame(id = 1:150,
    offset = rep(c("Group A", "Group B", "Group C"),
    each = 50), xaxis = sample(c("A", "B", "C", "D"),150, replace = TRUE),
    data = c(rnorm(50, 10, 5), rnorm(50, 15,6), rnorm(50, 20, 5)))
   raw.means.plot(x)
  }
- if(whichplot == "F") {
+ if(whichplot == "E") {
   x <- c(0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.3,0.3)
   y <- c( 1,  1,  1,  1,  2,  2,  2,  3,  3,  4,  5 )
   plot(x,y)
   sizeplot(x,y)
  }
- if(whichplot == "G") {
+ if(whichplot == "F") {
   cat1<-factor(sample(c("None","Low","Medium","High","Extreme"),40,TRUE),
    levels=c("None","Low","Medium","High","Extreme"))
   cat2<-factor(sample(c("None","Low","Medium","High"),40,TRUE),
@@ -494,7 +482,7 @@ if(answer == "2") {
   sizetree(hcats,main="Sizetree with automatic colors")
   par(mar=c(5,4,4,2))
  }
- if(whichplot == "H") {
+ if(whichplot == "G") {
   meantemp<-c(19,22,25,29,21,20,16,27,23,26)
   totalrain<-c(174,152,196,120,177,183,92,153,161,85)
   numpumpkin<-c(53,47,61,63,38,42,48,71,66,29)
@@ -512,13 +500,13 @@ if(answer == "2") {
   text(13.5,60,"Number of\npumpkins")
   par(xpd=FALSE)
  }
- if(whichplot == "I") {
+ if(whichplot == "H") {
   testx<-matrix(abs(rnorm(100)),nrow=10)
   stackpoly(matrix(cumsum(testx),nrow=10),main="Test Stackpoly I",
    xaxlab=c("One","Two","Three","Four","Five",
    "Six","Seven","Eight","Nine","Ten"),border="black",staxx=TRUE)
  }
- if(whichplot == "J") {
+ if(whichplot == "I") {
   sample_size<-c(500,-72,428,-94,334,-45,289)
   totals<-c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE)
   labels<-c("Contact list","Uncontactable","","Declined","","Ineligible",
@@ -527,7 +515,7 @@ if(answer == "2") {
    main="Acquisition of the sample (staircase.plot)",
    total.col="gray",inc.col=2:4,bg.col="#eeeebb",direction="s")
  }
- if(whichplot == "K") {
+ if(whichplot == "J") {
   ref<-rnorm(30,sd=2)
   model1<-ref+rnorm(30)/2
   model2<-ref+rnorm(30)
@@ -537,11 +525,11 @@ if(answer == "2") {
   legend(lpos,lpos,legend=c("Better","Worse"),pch=19,col=c("red","blue"))
   par(oldpar)
  }
- if(whichplot == "L") {
+ if(whichplot == "K") {
   data(soils)
   triax.plot(soils[1:10,],main="DEFAULT")
  }
- if(whichplot == "M") {
+ if(whichplot == "L") {
   going_up<-seq(3,7,by=0.5)+rnorm(9)
   going_down<-rev(60:74)+rnorm(15)
   twoord.plot(2:10,going_up,1:15,going_down,xlab="Sequence",
@@ -549,7 +537,7 @@ if(answer == "2") {
    main="Plot with two ordinates - points and lines",
    do.first="plot_bg();grid(col=\"white\",lty=1)")
  }
- if(whichplot == "N") {
+ if(whichplot == "M") {
   plot(1:10,type="n",main="Random vectors")
   mag<-runif(100)+1
   dir<-runif(100)*2*pi
@@ -558,18 +546,18 @@ if(answer == "2") {
   vectorcol<-sample(colors(),100)
   vectorField(dir,mag,xpos,ypos,scale=0.8,vecspec="rad",col=vectorcol)
  }
- if(whichplot == "O") {
+ if(whichplot == "N") {
   normvar<-c(rnorm(49),-4)
   unifvar<-runif(50,-2,2)
   violin_plot(matrix(c(normvar,unifvar),ncol=2),
    main="Default plot",x_axis_labels=c("Normal","Uniform"))
  }
- if(whichplot == "P") {
+ if(whichplot == "O") {
   testx<-sample(1:10,300,TRUE)
   testw<-seq(1,4,by=0.01)
   weighted.hist(testx,testw,breaks=1:10,main="Test weighted histogram")
  }
- if(whichplot == "Q") {
+ if(whichplot == "P") {
   zoomInPlot(rnorm(100),rnorm(100),rxlim=c(-1,1),rylim=c(-1,1),
    zoomtitle="Zoom In Plot",titlepos=-1.5)
  }

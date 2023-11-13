@@ -10,6 +10,7 @@ floating.pie<-function(xpos=0,ypos=0,x,edges=200,radius=1,col=NULL,
    type="n",axes=FALSE,xlab="",ylab="")
  if (!is.numeric(x)) stop("floating.pie: x values must be numeric.")
  validx<-which(!is.na(x) & x > 0)
+ col<-col[validx]
  # scale the values of x 0 to 1
  x<-c(0,cumsum(x[validx])/sum(x[validx]))
  dx<-diff(x)
