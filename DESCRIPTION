@@ -1,6 +1,6 @@
 Package: plotrix
-Version: 3.8-3
-Date: 2022-11-01
+Version: 3.8-4
+Date: 2023-11-09
 Title: Various Plotting Functions
 Author: Jim Lemon, Ben Bolker, Sander Oom,
 	Eduardo Klein, Barry Rowlingson,
@@ -12,17 +12,15 @@ Author: Jim Lemon, Ben Bolker, Sander Oom,
 	Christophe Dutang, Peter Solymos, Robby Engelmann, 
 	Michael Hecker, Felix Steinbeck, Hans Borchers,
 	Henrik Singmann, Ted Toal, Derek Ogle, Darshan Baral,
-	Ulrike Groemping, Bill Venables, The CRAN Team
-Maintainer: ORPHANED
+	Ulrike Groemping, Bill Venables, The CRAN Team,
+	Duncan Murdoch
+Maintainer: Duncan Murdoch <murdoch.duncan@gmail.com>
 Imports: grDevices, graphics, stats, utils
 Description: Lots of plots, various labeling, axis and color scaling functions. The author/maintainer died in September 2023.
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2023-11-02 05:34:33 UTC; ripley
 Depends: R (>= 3.5.0)
 Repository: CRAN
 Date/Publication: 2023-11-02 15:17:47 UTC
-X-CRAN-Original-Maintainer: Jim Lemon <drjimlemon@gmail.com>
-X-CRAN-Comment: Orphaned on 2023-11-02
- .
- The maintainer is deceased.
+URL: https://github.com/dmurdoch/plotrix
+BugReports: https://github.com/dmurdoch/plotrix/issues

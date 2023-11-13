@@ -1,3 +1,9 @@
+- version 3.8-4 (2023-11-09)
+
+  Duncan Murdoch has taken over as maintainer.
+  
+  Source has been moved to Github.
+
 - version 3.8-3 (2023-11-02)
 
 	Prepared by the CRAN team: the package has been orphaned.
