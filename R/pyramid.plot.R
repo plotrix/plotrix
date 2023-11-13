@@ -1,4 +1,4 @@
-pyramid.plot<-function (lx, rx, labels = NA, top.labels = c("Male", "Age", 
+pyramid.plot<-function (lx, rx, labels = NULL, top.labels = c("Male", "Age", 
     "Female"), main = "", laxlab = NULL, raxlab = NULL, unit = "%", 
     lxcol, rxcol, gap = 1, space = 0.2, ppmar = c(4, 2, 4, 2), 
     labelcex = 1, add = FALSE, xlim, show.values = FALSE, ndig = 1, 
@@ -9,7 +9,7 @@ pyramid.plot<-function (lx, rx, labels = NA, top.labels = c("Male", "Age",
     lxdim <- dim(lx)
     rxdim <- dim(rx)
     ncats <- ifelse(!is.null(lxdim), dim(lx)[1], length(lx))
-    if (length(labels) == 1) 
+    if ( !length(labels) ) 
         labels <- 1:ncats
     ldim <- length(dim(labels))
     nlabels <- ifelse(ldim, length(labels[, 1]), length(labels))

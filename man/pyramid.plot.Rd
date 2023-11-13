@@ -6,7 +6,7 @@
   graphics device.
 }
 \usage{
- pyramid.plot(lx,rx,labels=NA,top.labels=c("Male","Age","Female"),
+ pyramid.plot(lx,rx,labels=NULL,top.labels=c("Male","Age","Female"),
   main="",laxlab=NULL,raxlab=NULL,unit="\%",lxcol,rxcol,gap=1,space=0.2,
   ppmar=c(4,2,4,2),labelcex=1,add=FALSE,xlim,show.values=FALSE,ndig=1,
   do.first=NULL)

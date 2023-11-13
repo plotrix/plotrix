@@ -3,6 +3,9 @@
   Duncan Murdoch has taken over as maintainer.
   
   Source has been moved to Github.
+  
+  A bug in the labels in `pyramid.plot()` reported by `biohisham`
+  has been fixed.
 
 - version 3.8-3 (2023-11-02)
 
