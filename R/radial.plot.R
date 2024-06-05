@@ -41,8 +41,8 @@ polar.plot<-function(lengths,polar.pos=NULL,labels,label.pos=NULL,
  if(start) start<-pi*start/180
  if(missing(labels)) {
   labels<-label.pos<-seq(0,340,by=20)
-  label.pos<-pi*label.pos/180
  }
+ label.pos<-pi*label.pos/180
  invisible(radial.plot(lengths,radial.pos,labels,label.pos,start=start,
   clockwise=clockwise,rp.type=rp.type,loglen=loglen,explab=explab,...))
 }
