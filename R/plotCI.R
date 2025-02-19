@@ -36,7 +36,7 @@ plotCI <- function (x, y = NULL, uiw, liw = uiw, ui = NULL, li = NULL,
         else scol <- par("col")
     }
     plotpoints <- TRUE
-    if (!is.null(arglist$pch) && is.na(arglist$pch)) {
+    if (!is.null(arglist$pch) && any(is.na(arglist$pch))) {
         arglist$pch <- 1
         plotpoints <- FALSE
     }
