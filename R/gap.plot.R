@@ -5,10 +5,10 @@
 # it draws the plot in one call per section, skipping values that are 
 # in the gap.
 
-gap.plot<-function(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",
+gap.plot<-function(x,y,gap,gap.axis="y",style="gap",bgcol="white",breakcol="black",
  brw=0.02,xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
  lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
- add=FALSE,stax=FALSE,...) {
+ add=FALSE,stax=FALSE,bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...) {
 
  if(missing(y) && !missing(x)) {
   y<-x
@@ -104,9 +104,9 @@ gap.plot<-function(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",
  else {
   plot(x[littleones],y[littleones],xlim=xlim,ylim=ylim,axes=FALSE,
    lty=lty[littleones],col=col[littleones],pch=pch[littleones],...)
-  box()
+  box(bty=bty)
   if(gap.axis == "y") {
-   if(!is.na(xtics[1])) axis(1,at=xtics,labels=xticlab)
+   if(!is.na(xtics[1])) axis(1,at=xtics,labels=xticlab,xaxt=xaxt)
    littletics<-which(ytics < gap[1])
    if(length(gapsize) > 2) {
     middletics<-which(ytics >= gap[2]+ygw[1] & ytics <= gap[3])
@@ -125,10 +125,10 @@ gap.plot<-function(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",
     staxlab(2,at=show.at,labels=show.labels)
    }
    else axis(2,at=show.at,labels=show.labels)
-   axis.break(2,gap[1],style="gap",bgcol=bgcol,
+   axis.break(2,gap[1],style=style,bgcol=bgcol,
     breakcol=breakcol,brw=brw)
    if(length(gapsize) > 2) {
-    axis.break(2,gap[3]-gapsize[1],style="gap",bgcol=bgcol,
+    axis.break(2,gap[3]-gapsize[1],style=style,bgcol=bgcol,
      breakcol=breakcol,brw=brw)
     points(x[middleones],y[middleones]-gapsize[1],
      lty=lty[middleones],col=col[middleones],pch=pch[middleones],...)
@@ -140,7 +140,7 @@ gap.plot<-function(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",
   }
   # x gaps need to be fixed
   else {
-   if(!is.na(ytics[1])) axis(2,at=ytics,labels=yticlab)
+   if(!is.na(ytics[1])) axis(2,at=ytics,labels=yticlab,yaxt=yaxt)
    littletics<-which(xtics < gap[1])
    if(length(gapsize) > 2) {
     middletics<-which(xtics >= gap[2] + xgw[1] & xtics <= gap[3])
@@ -159,9 +159,9 @@ gap.plot<-function(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",
     staxlab(1,at=show.at,labels=show.labels)
    }
    else axis(1,at=show.at,labels=show.labels)
-   axis.break(1,gap[1],style="gap")
+   axis.break(1,gap[1],style=style)
    if(length(gapsize) > 2) {
-    axis.break(1,gap[3]-gapsize[1],style="gap")
+    axis.break(1,gap[3]-gapsize[1],style=style)
     points(x[middleones]-gapsize[1],y[middleones],
      lty=lty[middleones],col=col[middleones],pch=pch[middleones],...)
     points(x[bigones]-(gapsize[1]+gapsize[3]),y[bigones],

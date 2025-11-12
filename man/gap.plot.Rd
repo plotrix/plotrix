@@ -8,7 +8,7 @@
  gap.plot(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",brw=0.02,
   xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
   lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
-  add=FALSE,stax=FALSE,...)
+  add=FALSE,stax=FALSE,bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...)
 }
 \arguments{
  \item{x,y}{data values}
@@ -27,6 +27,9 @@
  \item{pch}{symbols to use in plotting.}
  \item{add}{whether to add values to an existing plot.}
  \item{stax}{whether to call staxlab for staggered axis labels.}
+ \item{bty}{type of ‘box’ drawn around the plot (see \samp{?par} for details).}
+ \item{xaxt}{type of x axis (see \samp{?par} for details).}
+ \item{yaxt}{type of y axis (see \samp{?par} for details).}
  \item{...}{arguments passed to \samp{plot} and \samp{points}.}
 }
 \value{nil}
