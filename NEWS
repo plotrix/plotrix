@@ -1,8 +1,9 @@
-Changes in version 3.8-8 (2025-11-12)
+Changes in version 3.8-9 (2025-11-12)
 
   - Fixed warnings in `gap.plot()` when there were 2 gaps.
   
   - Fixed `pie3D()` which skipped very small slices (issue #9).
+  - Fixed `polar.plot()` which put labels in the wrong place (issue #8).
 
 Changes in version 3.8-6 (2023-11-13)
 
