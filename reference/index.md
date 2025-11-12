@@ -1,0 +1,237 @@
+# Package index
+
+## All functions
+
+- [`ablineclip()`](ablineclip.md) : Add a straight line to a plot
+- [`add.ps()`](add.ps.md) : add p-values from t-tests
+- [`addtable2plot()`](addtable2plot.md) : Add a table of values to a
+  plot
+- [`arctext()`](arctext.md) : Display text on a circular arc
+- [`axis.break()`](axis.break.md) : Place a "break" mark on an axis
+- [`axis.mult()`](axis.mult.md) : Display an axis with values having a
+  multiplier
+- [`barNest()`](barNest.md) : Display a nested breakdown of numeric
+  values
+- [`barlabels()`](barlabels.md) : Label the bars on a barplot
+- [`barp()`](barp.md) : A bar plotting routine
+- [`battleship.plot()`](battleship.plot.md) : Display a matrix of values
+  as the widths of stacked rectangles
+- [`bin.wind.records()`](bin.wind.records.md) : Classify wind direction
+  and speed records
+- [`binciW()`](binciW.md) : Binomial confidence limits
+- [`binciWl()`](binciWl.md) : Lower binomial confidence limit
+- [`binciWu()`](binciWu.md) : Upper binomial confidence limit
+- [`box.heresy()`](box.heresy.md) : Display a sort of box plot
+- [`boxed.labels()`](boxed.labels.md) : Place labels in boxes
+- [`brkdn.plot()`](brkdn.plot.md) : A point/line plotting routine
+- [`brkdnNest()`](brkdnNest.md) : Perform a nested breakdown of numeric
+  values
+- [`bumpchart()`](bumpchart.md) : Display a "bumps" (sequential ranking)
+  chart
+- [`categoryReshape()`](categoryReshape.md) : Convert object
+  label/attribute label coding.
+- [`centipede.plot()`](centipede.plot.md) : Display a centipede plot
+- [`clean.args()`](clean.args.md) [`remove.args()`](clean.args.md) :
+  Remove inappropriate arguments from an argument list
+- [`clock24.plot()`](clock24.plot.md) : Plot values on a 24 hour
+  "clockface"
+- [`clplot()`](clplot.md) : Plot lines with colors determined by values.
+- [`cluster.overplot()`](cluster.overplot.md) : Shift overlying points
+  into clusters
+- [`clustered.dotplots()`](clustered.dotplots.md) : Display the
+  frequencies of two categories
+- [`color.axis()`](color.axis.md) : Display an axis in a specified color
+- [`color.gradient()`](color.gradient.md) : Calculate an arbitrary
+  sequence of colors
+- [`color.id()`](color.id.md) : Identify closest match to a color
+- [`color.legend()`](color.legend.md) : Legend matching categories or
+  values to colors
+- [`color.scale()`](color.scale.md) : Turn values into colors.
+- [`color.scale.lines()`](color.scale.lines.md) : Line segments with
+  scaled colors
+- [`color2D.matplot()`](color2D.matplot.md) : Display a numeric matrix
+  as color matrix
+- [`corner.label()`](corner.label.md) : Find corner locations and
+  optionally display a label
+- [`count.overplot()`](count.overplot.md) : Show overlying points as
+  counts
+- [`cylindrect()`](cylindrect.md) : Display an apparent cylinder
+- [`death_reg`](death_reg.md) : Death registrations from 1996 to 2010
+- [`dendroPlot()`](dendroPlot.md) : Display distributions as dendrites
+- [`densityGrid()`](densityGrid.md) : Display a matrix of cell values as
+  symbols.
+- [`diamondplot()`](diamondplot.md) : Plot multiple variables as
+  polygons on a radial grid
+- [`dispersion()`](dispersion.md) : Display a measure of dispersion.
+- [`do.first`](do.first.md) : Execute a graphic function on a plot
+- [`dotplot.mtb()`](dotplot.mtb.md) : Minitab style dotplots.
+- [`draw.arc()`](draw.arc.md) : Draw arc
+- [`draw.circle()`](draw.circle.md) : Draw a circle
+- [`draw.ellipse()`](draw.ellipse.md) : Draw ellipse
+- [`draw.radial.line()`](draw.radial.line.md) : Draw a radial line
+- [`draw.tilted.sector()`](draw.tilted.sector.md) : Display a 3D pie
+  sector
+- [`drawNestedBars()`](drawNestedBars.md) : Display nested bars
+- [`drawSectorAnnulus()`](drawSectorAnnulus.md) : Display a radial pie
+  sector
+- [`ehplot()`](ehplot.md) : Engelmann-Hecker-Plot - EH-Plot
+- [`election()`](election.md) : Assign party members to seats
+- [`emptyspace()`](emptyspace.md) : Find an empty space on a plot
+- [`fan.plot()`](fan.plot.md) : Display a fan plot
+- [`feather.plot()`](feather.plot.md) : Display vectors along a
+  horizontal reference line
+- [`fill.corner()`](fill.corner.md) : Fill a "corner" of a matrix with
+  values
+- [`find_max_cell()`](find_max_cell.md) : Maximum (or minimum) value
+  cell in a matrix.
+- [`floating.pie()`](floating.pie.md) : Display a floating pie chart
+- [`fullaxis()`](fullaxis.md) : Add an axis with a line to the edge of
+  the plot
+- [`gantt.chart()`](gantt.chart.md) : Display a Gantt chart
+- [`gap.barplot()`](gap.barplot.md) : Display a barplot with a gap
+  (missing range) on one axis
+- [`gap.boxplot()`](gap.boxplot.md) : Display a boxplot with a gap
+  (missing range)
+- [`gap.plot()`](gap.plot.md) : Display a plot with one or two gaps
+  (missing ranges) on one axis
+- [`gap_barp()`](gap_barp.md) : Display a barplot with a gap (missing
+  range) on one axis
+- [`get.breaks()`](get.breaks.md) : Get the breakpoints for a weighted
+  histogram
+- [`get.gantt.info()`](get.gantt.info.md) : Gather the information to
+  create a Gantt chart
+- [`get.segs()`](get.segs.md) : Calculate the midpoints and limits for a
+  centipede plot
+- [`get.soil.texture()`](get.soil.texture.md) : Enter soil texture data
+- [`get.tablepos()`](get.tablepos.md) : Get the position for a legend or
+  table
+- [`get.triprop()`](get.triprop.md) : Enter three proportion data -
+  usually soil textures
+- [`getFigCtr()`](getFigCtr.md) : Get coordinates in the figure region
+  in user units.
+- [`getIntersectList()`](getIntersectList.md) : Enter a set intersection
+  list
+- [`getMarginWidth()`](getMarginWidth.md) : Find the margin width
+  necessary to fit text or a legend next to a plot
+- [`getYmult()`](getYmult.md) : Correct for aspect and coordinate ratio
+- [`get_axispos3d()`](get_axispos3d.md) : Get axis positions on a 3D
+  plot
+- [`gradient.rect()`](gradient.rect.md) : Display a rectangle filled
+  with an arbitrary color gradient
+- [`hexagon()`](hexagon.md) : Draw a hexagon
+- [`histStack()`](histStack.md) : Histogram "stacked" by categories
+- [`intersectDiagram()`](intersectDiagram.md) : Display set
+  intersections
+- [`jiggle()`](jiggle.md) : Calculate equally spaced values within a
+  range.
+- [`joyPlot()`](joyPlot.md) : Display a series of density curves.
+- [`kiteChart()`](kiteChart.md) : Magnitude by position chart.
+- [`l2010`](l2010.md) : World lightning strike data from 2010
+- [`labbePlot()`](labbePlot.md) : Display a L'Abbe plot
+- [`ladderplot()`](ladderplot.md) : Ladder Plot
+- [`legendg()`](legendg.md) : Legend with grouped bars, lines or symbols
+- [`lengthKey()`](lengthKey.md) : Key for interpreting lengths in a plot
+- [`makeDensityMatrix()`](makeDensityMatrix.md) : Compute a matrix of
+  counts from a list of x,y positions
+- [`makeIntersectList()`](makeIntersectList.md) : Count set
+  intersections
+- [`maxEmptyRect()`](maxEmptyRect.md) : Find an empty space on a plot
+- [`mtext3d()`](mtext3d.md) : Display text in the margins of a 3D plot
+- [`multhist()`](multhist.md) : Plot a multiple histogram, as a barplot
+- [`multivari()`](multivari.md) : Function to draw a multivari chart
+- [`multsymbolbox()`](multsymbolbox.md) : Draw boxes filled with symbols
+- [`oz.windrose()`](oz.windrose.md) : Display an Australian wind rose
+- [`oz.windrose.legend()`](oz.windrose.legend.md) : Display an
+  Australian wind rose legend
+- [`p2p_arrows()`](p2p_arrows.md) : Draw arrows between points
+- [`panes()`](panes.md) : Prepare a "panel" type layout
+- [`pasteCols()`](pasteCols.md) : Paste the columns of a matrix together
+- [`paxis3d()`](paxis3d.md) : Display text in the margins of a 3D plot
+- [`perspx()`](perspx.md) : Display perspective plot
+- [`pie.labels()`](pie.labels.md) : Place labels on a pie chart
+- [`pie3D()`](pie3D.md) : Display a 3D pie chart
+- [`pie3D.labels()`](pie3D.labels.md) : Display labels on a 3D pie chart
+- [`placeLabels()`](placeLabels.md) : Place labels in boxes
+- [`plotCI()`](plotCI.md) : Plot confidence intervals/error bars
+- [`plotH()`](plotH.md) : Scatterplot with histogram-like bars.
+- [`plot_bg()`](plot_bg.md) : Add a background color to a plot
+- [`plotrix-package`](plotrix-package.md)
+  [`plotrix`](plotrix-package.md) : Specialized plots and plotting
+  accessories
+- [`polar.plot()`](polar.plot.md) : Plot values on a circular grid of 0
+  to 360 degrees
+- [`polygon.shadow()`](polygon.shadow.md) : Display a shadow effect for
+  an arbitrary polygon
+- [`print(`*`<brklist>`*`)`](print.brklist.md) : Display the output of
+  brkdnNest
+- [`propbrk()`](propbrk.md) : Calculate the proportion of specified
+  values in a vector
+- [`psegments3d()`](psegments3d.md) : Draw segments on a 3D plot
+- [`ptext3d()`](ptext3d.md) : Display text on a 3D plot
+- [`pyramid.plot()`](pyramid.plot.md) : Pyramid plot
+- [`radial.grid()`](radial.grid.md) : Display a radial grid
+- [`radial.pie()`](radial.pie.md) : Plot sectors/annuli on a circular
+  grid of 0 to 2\*pi radians
+- [`radial.plot()`](radial.plot.md) : Plot values on a circular grid of
+  0 to 2\*pi radians
+- [`radial.plot.labels()`](radial.plot.labels.md) : Display labels on a
+  circular grid
+- [`radialtext()`](radialtext.md) : Display text in a radial line
+- [`raw.means.plot()`](raw.means.plot.md)
+  [`raw.means.plot2()`](raw.means.plot.md) : raw.means.plot: Raw-Means
+  Plots for Experimental Designs
+- [`rectFill()`](rectFill.md) : Draw a rectangle filled with symbols
+- [`rescale()`](rescale.md) : Scale numbers into a new range
+- [`revaxis()`](revaxis.md) : Plot with axis direction(s) reversed
+- [`ruginv()`](ruginv.md) : Add an Inverse Rug to a Plot
+- [`seats()`](seats.md) : Arrange N seats in M semicircular rows
+- [`size_n_color()`](size_n_color.md) : Display circles with specified
+  size and color
+- [`sizeplot()`](sizeplot.md) : Plot with repeated symbols by size
+- [`sizetree()`](sizetree.md) : Display a hierarchical breakdown of
+  disjunct categories
+- [`sliceArray()`](sliceArray.md) : Slice an array
+- [`smoothColors()`](smoothColors.md) : Build a vector of color values
+- [`soil.texture()`](soil.texture.md) : Soil texture triangle plot
+- [`soil.texture.uk()`](soil.texture.uk.md) : Soil texture triangle plot
+  using UK conventions
+- [`soils`](soils.md) : Soil texture data from 125 soils
+- [`spread.labels()`](spread.labels.md) : Spread labels for irregularly
+  spaced values
+- [`spreadout()`](spreadout.md) : Spread out a vector of numbers to a
+  minimum interval
+- [`stackpoly()`](stackpoly.md) : Display the columns of a matrix or
+  data frame as stacked polygons
+- [`staircase.plot()`](staircase.plot.md) : Display a staircase plot
+- [`staircasePlot()`](staircasePlot.md) : Display a staircase plot
+- [`starPie()`](starPie.md) : A pie-like graphic object
+- [`staxlab()`](staxlab.md) : Place staggered or angled labels on an
+  axis
+- [`std.error()`](std.error.md) : Calculate standard error of the mean
+- [`sumbrk()`](sumbrk.md) : Count specified values in a vector
+- [`symbolbarplot()`](symbolbarplot.md) : barplot filled with symbols
+- [`symbolbox()`](symbolbox.md) : Draw a box filled with symbols
+- [`tab.title()`](tab.title.md) : Display the title of a plot as a
+  colored tab
+- [`taylor.diagram()`](taylor.diagram.md) : Taylor diagram
+- [`textbox()`](textbox.md) : Add text box
+- [`thigmophobe()`](thigmophobe.md) : Find the direction away from the
+  closest point
+- [`thigmophobe.labels()`](thigmophobe.labels.md) : Place labels away
+  from the nearest point
+- [`triax.abline()`](triax.abline.md) : Lines for triangle plot
+- [`triax.fill()`](triax.fill.md) : Triangle plot fill
+- [`triax.frame()`](triax.frame.md) : Triangle plot frame
+- [`triax.plot()`](triax.plot.md) : Triangle plot
+- [`triax.points()`](triax.points.md) : Triangle plot points
+- [`tsxpos()`](tsxpos.md) : Calculate equispaced x positions.
+- [`twoord.plot()`](twoord.plot.md) : Plot with two ordinates
+- [`twoord.stackplot()`](twoord.stackplot.md) : Multiple (stack) plot
+  with two ordinates
+- [`valid.n()`](valid.n.md) : Find the number of valid (not NA) values
+- [`vectorField()`](vectorField.md) : Display magnitude/direction
+  vectors
+- [`violin_plot()`](violin_plot.md) : Display a "violin" plot
+- [`weighted.hist()`](weighted.hist.md) : Display a weighted histogram
+- [`zoomInPlot()`](zoomInPlot.md) : Display a plot with a rectangular
+  section expanded in an adjacent plot
