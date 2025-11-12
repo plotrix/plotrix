@@ -1,5 +1,5 @@
 Package: plotrix
-Version: 3.8-7
+Version: 3.8-8
 Title: Various Plotting Functions
 Authors@R: c(
   person("Jim", "Lemon", role = "aut"),
