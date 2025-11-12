@@ -26,7 +26,7 @@ draw.tilted.sector<-function(x=0,y=0,edges=NA,radius=1,height=0.1,
  theta=pi/6,start=0,end=pi*2,border=par("fg"),col=par("bg"),explode=0,
  shade=0.8) {
 
- if(is.na(edges)) edges<-trunc(20*(end-start))
+ if(is.na(edges)) edges<-max(1, trunc(20*(end-start)))
  angleinc<-(end-start)/edges
  angles<-c(seq(start,end,by=angleinc),end)
  viscurve<-(angles>=pi)&(angles<=2*pi)
