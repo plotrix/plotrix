@@ -5,10 +5,11 @@ Displays a plot with one or two missing ranges on one of the axes.
 ## Usage
 
 ``` r
-gap.plot(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",brw=0.02,
-  xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
-  lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
-  add=FALSE,stax=FALSE,...)
+gap.plot(x,y,gap,gap.axis="y",
+         style="gap", bgcol="white",breakcol="black",brw=0.02,
+         xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
+         lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
+         add=FALSE,stax=FALSE,bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...)
 ```
 
 ## Arguments
@@ -24,6 +25,10 @@ gap.plot(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",brw=0.02,
 - gap.axis:
 
   whether the gaps are to be on the x or y axis
+
+- style:
+
+  the style to use for the break; see [`axis.break`](axis.break.md)
 
 - bgcol:
 
@@ -76,6 +81,11 @@ gap.plot(x,y,gap,gap.axis="y",bgcol="white",breakcol="black",brw=0.02,
 - stax:
 
   whether to call staxlab for staggered axis labels.
+
+- bty,xaxt,yaxt:
+
+  type of box and axes (see [`par`](https://rdrr.io/r/graphics/par.html)
+  for details.)
 
 - ...:
 
@@ -151,4 +161,10 @@ Roberts for helping to get the gaps right.)
  type="b")
  gap.plot(21:30,rnorm(10)+40,gap=c(8,16,25,35),add=TRUE,
   lty=rep(3,10),col=rep(4,10),type="l")
+
+  
+ # Use non-standard box type and break
+  gap.plot(twogrp,gap=c(7,17),xlab="Index",ylab="Group values",
+  main="Gap on Y axis",col=gpcol,bty="L",style="slash",
+  ytics=pretty(twogrp, 8))
 ```
