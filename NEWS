@@ -1,4 +1,4 @@
-Changes in version 3.8-10 (2025-11-12)
+Changes in version 3.8-11 (2025-11-13)
 
   - Fixed warnings in `gap.plot()` when there were 2 gaps.
   
@@ -6,6 +6,9 @@ Changes in version 3.8-10 (2025-11-12)
   - Fixed `polar.plot()` which put labels in the wrong place (PR #8).
   
   - Fixed `plotCI()` to allow `pch` to be a vector (PR #11).
+  
+  - Added arguments to `gap.plot()` to support non-standard
+  box types (PR #17).
 
 Changes in version 3.8-6 (2023-11-13)
 
