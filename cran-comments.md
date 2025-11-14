@@ -1,3 +1,9 @@
+## 3.8-13
+
+  - Fixes CRAN issues:  URL moved, width of usage.
+
+## 3.8-12
+
 This is a fairly minor bug fix release.  It also adds a few 
 options to the `gap.plot()` function.  Here's the news:
 

@@ -9,7 +9,8 @@ gap.plot(x,y,gap,gap.axis="y",
          bgcol="white",breakcol="black",brw=0.02,
          xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
          lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
-         add=FALSE,stax=FALSE,style="gap",bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...) 
+         add=FALSE,stax=FALSE,
+         style="gap",bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...) 
 }
 \arguments{
  \item{x,y}{data values}
