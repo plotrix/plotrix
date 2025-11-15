@@ -146,7 +146,7 @@ a list of (lists of) data frames with summary statistics to be plotted
 
 Scibilia, Bruno (2013). Using Multi-Vari Charts to Analyze Families of
 Variations.
-<https://blog.minitab.com/en/using-variability-charts-to-analyze-call-center-wait-times>.
+<https://blog.minitab.com/en/blog/using-variability-charts-to-analyze-call-center-wait-times>.
 
 ## Author
 

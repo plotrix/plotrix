@@ -45,7 +45,7 @@ Jim Lemon
  plot(rnorm(10))
 
  newmarinfo<-getMarginWidth(labels=c("Long label","Even longer label"))
-#> plotprop 0.814 marprop 0.063 plotwidth 9.72 marwidth 2.861766 
+#> plotprop 0.814 marprop 0.063 plotwidth 9.72 marwidth 2.537236 
  oldmar<-par("mar")
  par(mar=c(oldmar[1:3],newmarinfo$newmar))
  plot(rnorm(10))

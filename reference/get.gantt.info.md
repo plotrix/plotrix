@@ -52,7 +52,6 @@ Jim Lemon
 #> Enter the label, start and finish time for each task.
 #> Default format for time is year/month/day e.g. 2005/2/22
 #> Enter a blank label to end.
-#> Task label - 
 #> $labels
 #> [1] NA
 #> 

@@ -6,10 +6,11 @@ Displays a plot with one or two missing ranges on one of the axes.
 
 ``` r
 gap.plot(x,y,gap,gap.axis="y",
-         style="gap", bgcol="white",breakcol="black",brw=0.02,
+         bgcol="white",breakcol="black",brw=0.02,
          xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
          lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
-         add=FALSE,stax=FALSE,bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...)
+         add=FALSE,stax=FALSE,
+         style="gap",bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...)
 ```
 
 ## Arguments
@@ -25,10 +26,6 @@ gap.plot(x,y,gap,gap.axis="y",
 - gap.axis:
 
   whether the gaps are to be on the x or y axis
-
-- style:
-
-  the style to use for the break; see [`axis.break`](axis.break.md)
 
 - bgcol:
 
@@ -81,6 +78,10 @@ gap.plot(x,y,gap,gap.axis="y",
 - stax:
 
   whether to call staxlab for staggered axis labels.
+
+- style:
+
+  the style to use for the break; see [`axis.break`](axis.break.md)
 
 - bty,xaxt,yaxt:
 

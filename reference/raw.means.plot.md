@@ -294,39 +294,39 @@ x <- data.frame(id = 1:150, offset = rep(c("Group A", "Group B", "Group C"),
 raw.means.plot(x)
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 
 raw.means.plot(x, main = "Example", ylab = "Values", xlab = "Factor",
  title = "Groups")
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 
 raw.means.plot(x, "offset", "xaxis", "data")
 #> Warning: Converting offset variable (column offset) to factor.
 #> Warning: Converting x-axis variable (column offset) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 
 raw.means.plot(x, "xaxis", "offset", "data")
 #> Warning: Converting offset variable (column xaxis) to factor.
 #> Warning: Converting x-axis variable (column xaxis) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 
 raw.means.plot(x, 3, 2, 4)
 #> Warning: Converting offset variable (column 3) to factor.
 #> Warning: Converting x-axis variable (column 3) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 # different colors:
 raw.means.plot(x, main = "Example", ylab = "Values", xlab = "Factor",
  title = "Groups", fg.f.col = c("red","blue", "green"))
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 
 
 x2 <- data.frame(id = 1:150, offset = rep(c("Group A", "Group B", "Group C"),
@@ -338,16 +338,16 @@ raw.means.plot(x, main = "Data x1", ylab = "Values", xlab = "Factor",
  legend = FALSE, mar = c(4,4,4,1)+0.1)
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238749
+#> Warning: ylim not specified, taken from data: -2.24425496039227 - 32.2603172238748
 raw.means.plot(x2, main = "Data x2", ylab = "Values", xlab = "Factor",
  legend = FALSE, mar = c(4,4,4,1)+0.1)
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -4.6524102769029 - 31.9198591156234
+#> Warning: ylim not specified, taken from data: -4.65241027690291 - 31.9198591156234
 raw.means.plot(x2, plot = FALSE, title = "Groups")
 #> Warning: Converting offset variable (column 2) to factor.
 #> Warning: Converting x-axis variable (column 2) to factor.
-#> Warning: ylim not specified, taken from data: -4.6524102769029 - 31.9198591156234
+#> Warning: ylim not specified, taken from data: -4.65241027690291 - 31.9198591156234
 
 
 

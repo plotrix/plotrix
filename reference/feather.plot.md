@@ -98,6 +98,6 @@ Jim Lemon, Eduardo Klein
  feather.plot(r,c(theta[19:24],rev(theta[7:18]),theta[1:6]),xlabels=1:24,fp.type="m",
   main="Meteorological Coordinates",xlab="Time",ylab="Value")
  dev.off()
-#> agg_record_1280622654 
-#>                     2 
+#> RStudioGD 
+#>         2 
 ```

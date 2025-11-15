@@ -69,7 +69,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/plotrix/plotrix/blob/master/inst/CITATION)
+[`inst/CITATION`](https://github.com/plotrix/plotrix/blob/HEAD/inst/CITATION)
 
 Lemon, J. (2006) Plotrix: a package in the red light district of R.
 R-News, 6(4): 8-12.
