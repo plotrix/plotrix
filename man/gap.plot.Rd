@@ -6,16 +6,16 @@
 }
 \usage{
 gap.plot(x,y,gap,gap.axis="y",
-         style="gap", bgcol="white",breakcol="black",brw=0.02,
+         bgcol="white",breakcol="black",brw=0.02,
          xlim=range(x),ylim=range(y),xticlab,xtics=NA,yticlab,ytics=NA,
          lty=rep(1,length(x)),col=rep(par("col"),length(x)),pch=rep(1,length(x)),
-         add=FALSE,stax=FALSE,bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...) 
+         add=FALSE,stax=FALSE,
+         style="gap",bty=par("bty"),xaxt=par("xaxt"),yaxt=par("yaxt"),...) 
 }
 \arguments{
  \item{x,y}{data values}
  \item{gap}{the range(s) of values to be left out}
  \item{gap.axis}{whether the gaps are to be on the x or y axis}
- \item{style}{the style to use for the break; see \code{\link{axis.break}}}
  \item{bgcol}{the color of the plot background}
  \item{breakcol}{the color of the "break" marker}
  \item{brw}{break width relative to plot width}
@@ -29,6 +29,7 @@ gap.plot(x,y,gap,gap.axis="y",
  \item{pch}{symbols to use in plotting.}
  \item{add}{whether to add values to an existing plot.}
  \item{stax}{whether to call staxlab for staggered axis labels.}
+ \item{style}{the style to use for the break; see \code{\link{axis.break}}}
  \item{bty,xaxt,yaxt}{type of box and axes (see \code{\link{par}} for details.)}
  \item{...}{arguments passed to \samp{plot} and \samp{points}.}
 }
