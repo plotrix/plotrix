@@ -1,3 +1,7 @@
+Changes in version 3.8.14 (2026-02-13)
+
+  - Fixed mis-handling of `labels = ""` in `polar.plot()` (issue #19).
+
 Changes in version 3.8-13 (2025-11-14)
 
   - Fixed warnings in `gap.plot()` when there were 2 gaps.
