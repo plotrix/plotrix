@@ -6,7 +6,9 @@ brkdn.plot<-function(vars,groups=NULL,obs=NULL,data,mct="mean",md="std.error",
   formbits<-all.vars(vars)
   vars<-formbits[1]
   groups<-formbits[2]
-  obs<-formbits[3]
+  # only assign obs when a third term (e.g. var~groups+obs) is present,
+  # so a two-term formula leaves obs as NULL rather than NA_character_.
+  if(length(formbits) > 2) obs<-formbits[3]
  }
  if(is.null(obs)) {
   if(is.null(groups[1]))
@@ -64,8 +66,8 @@ brkdn.plot<-function(vars,groups=NULL,obs=NULL,data,mct="mean",md="std.error",
   }
  }
  else {
-  if(is.na(obs)) {
-   if(is.na(xlab)) xlab<-"Variable"
+  if(is.null(obs)) {
+   if(is.null(xlab)) xlab<-"Variable"
    xat<-1:length(vars)
    if(is.na(xaxlab[1])) xaxlab<-vars
    for(group in 1:ngroups) {

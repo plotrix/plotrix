@@ -30,7 +30,7 @@ histStack.default<-function(x,z,breaks="Sturges",col="rainbow",right=TRUE,
   hist(x[z %in% seps[-(1:i)]],breaks=hS$breaks,col=col[i+1],
   right=right,add=TRUE)
  if(!is.null(legend.pos)) {
-  if(length(legend.pos > 1))
+  if(length(legend.pos) > 1)
    legend(legend.pos[1],legend.pos[2],seps,fill=col,cex=cex.legend)
   else legend(legend.pos,seps,fill=col,cex=cex.legend)
  }
