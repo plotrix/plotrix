@@ -93,7 +93,7 @@ Jim Lemon
  xyz<-makeDensityMatrix(x,y,z,nx=20,ny=20,xlim=c(1,10),ylim=c(1,10),
   geocoord=FALSE)
 #> Range of density (>0) - 1 5 
-#> Range of intensity (>0) - 5.111809 19.95792 
+#> Range of intensity (>0) - 5.105539 19.95792 
  par(mar=c(7,3,2,3))
  plot(0,xlim=c(1,10),ylim=c(1,10),type="n",xlab="",axes=FALSE)
  box()

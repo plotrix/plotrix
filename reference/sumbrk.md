@@ -44,5 +44,5 @@ Jim Lemon
 
 ``` r
  sumbrk(sample(LETTERS,100,TRUE),trueval="M")
-#> [1] 5
+#> [1] 6
 ```

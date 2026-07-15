@@ -61,7 +61,7 @@ Ben Bolker
 #> Error in rnorm(n = 2, mean = 0, sd = 1, foo = 4, bar = 6) : 
 #>   unused arguments (foo = 4, bar = 6)
  do.call("rnorm",clean.args(tststr,rnorm))
-#> [1]  1.061975 -2.725278
+#> [1] 0.2829562 0.6335508
  remove.args(tststr,rnorm)
 #> $foo
 #> [1] 4

@@ -8,6 +8,7 @@ axis & color scaling functions.
 You can install the current release of `plotrix` from CRAN with:
 
 ``` r
+
 install.packages("plotrix")
 ```
 
@@ -15,6 +16,7 @@ You can install the development version of plotrix from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("plotrix/plotrix")
 ```

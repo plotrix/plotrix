@@ -99,7 +99,6 @@ Jim Lemon
  oneout<-c(rnorm(5,sd=5),20,rnorm(5,sd=5))
  gap_barp(oneout,gap=c(8,16),xlab="Index",height.at=c(-5,0,5,20),
   ylab="Group values",main="Barplot with gap above zero")
-#> Warning: some heights within gap
 
  oneout[6]<--20
  gap_barp(oneout,gap=c(-8,-16),xlab="Index",height.at=c(-20,-5,0,5),

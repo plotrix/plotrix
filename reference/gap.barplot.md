@@ -92,9 +92,9 @@ gap.barplot
  twogrp<-c(rnorm(10)+4,rnorm(10)+20)
  gap.barplot(twogrp,gap=c(8,16),xlab="Index",ytics=c(3,6,17,20),
   ylab="Group values",main="Barplot with gap")
-#> ylim -5.174695 13.64423 
+#> ylim -4.912831 13.70863 
 
  gap.barplot(twogrp,gap=c(8,16),xlab="Index",ytics=c(3,6,17,20),
   ylab="Group values",horiz=TRUE,main="Horizontal barplot with gap")
-#> ylim -5.174695 13.64423 
+#> ylim -4.912831 13.70863 
 ```
