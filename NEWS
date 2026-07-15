@@ -1,3 +1,16 @@
+Changes in version 3.8-15 (unreleased)
+
+  - Fixed `brkdn.plot()` crashing when called with a two-term formula
+  such as `var ~ groups` (no `obs` term). The formula handler now leaves
+  `obs` as NULL when no third term is present, and the downstream
+  dispatch uses `is.null()` (rather than `is.na()`) for the `obs` and
+  `xlab` arguments, which default to NULL.
+
+  - Fixed `histStack()` routing a single keyword `legend.pos` (e.g.
+  `"topright"`) into the coordinate branch because of a misplaced
+  parenthesis in `length(legend.pos > 1)`. The check is now
+  `length(legend.pos) > 1`.
+
 Changes in version 3.8.14 (2026-02-13)
 
   - Fixed mis-handling of `labels = ""` in `polar.plot()` (issue #19).
